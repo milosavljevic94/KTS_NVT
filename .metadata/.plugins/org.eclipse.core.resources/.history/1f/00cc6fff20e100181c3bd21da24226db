@@ -1,0 +1,20 @@
+package com.example.demo.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+/**
+ * @author Nemanja
+ * Nov 5, 2018
+ */
+@Entity
+@Table(name = "stajaliste")
+public class Stajaliste implements Serializable {
+	
+	
+	private Long id;
+	private String naziv;
+
+}
