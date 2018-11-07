@@ -9,8 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "registrovani_korisnici")
+@Table(name = "korisnici")
 public class Korisnik implements Serializable{
+
+	private static final long serialVersionUID = -5031209709335267606L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,7 +30,6 @@ public class Korisnik implements Serializable{
 
 	public Korisnik() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Korisnik(Long id, String ime, String prezime, TipKorisnika tip, String email, String lozinka) {
@@ -91,10 +92,8 @@ public class Korisnik implements Serializable{
 
 	@Override
 	public String toString() {
-		return "RegistrovaniKorisnik [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", tip=" + tip + ", email="
+		return "Korisnik [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", tip=" + tip + ", email="
 				+ email + ", lozinka=" + lozinka + "]";
 	}
-	
-	
-	
+
 }
