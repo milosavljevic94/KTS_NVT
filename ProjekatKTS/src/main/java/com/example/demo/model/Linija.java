@@ -1,30 +1,49 @@
 package com.example.demo.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
+@SuppressWarnings("serial")
 @Entity
-public class Linija {
+@Table(name = "linija")
+public class Linija implements Serializable {
 	@Id
 	@Column(name = "broj_linije")
 	String broj;
-	@Column(nullable = false)
+	
 	String naziv;
+	
 	@ManyToMany
 	List<Stajaliste> stajalista;
-	@Column(name = "polasciRadnidan")
+	
+	//@Column(name = "polasciRadnidan")
+	@ElementCollection
 	List<String> polasciRadniDan;
-	@Column(name = "polasciSubota")
+	
+	//@Column(name = "polasciSubota")
+	@ElementCollection
 	List<String> polasciSubota;
-	@Column(name = "polasciNedelja")
+	
+	//@Column(name = "polasciNedelja")
+	@ElementCollection
 	List<String> polasciNedelja;
+	
+	@Enumerated(EnumType.STRING)
 	TipVozila tip;
 	
 	
+	public Linija() {
+		super();
+	}
 	public Linija(String broj, String naziv, List<Stajaliste> stajalista, List<String> polasciRadniDan,
 			List<String> polasciSubota, List<String> polasciNedelja, TipVozila tip) {
 		super();
