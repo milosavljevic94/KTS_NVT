@@ -1,0 +1,90 @@
+package com.example.demo.model;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "administratori")
+public class Administrator extends RegistrovaniKorisnik {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	private String ime;
+	private String prezime;
+	private TipKorisnika tip;
+	private String email;
+	private String lozinka;
+
+	public Administrator() {
+		super();
+	}
+
+	public Administrator(Long id, String ime, String prezime, String email, String lozinka) {
+		super();
+		this.id = id;
+		this.ime = ime;
+		this.prezime = prezime;
+		this.tip = TipKorisnika.administrator;
+		this.email = email;
+		this.lozinka = lozinka;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getIme() {
+		return ime;
+	}
+
+	public void setIme(String ime) {
+		this.ime = ime;
+	}
+
+	public String getPrezime() {
+		return prezime;
+	}
+
+	public void setPrezime(String prezime) {
+		this.prezime = prezime;
+	}
+
+	public TipKorisnika getTip() {
+		return tip;
+	}
+
+	public void setTip(TipKorisnika tip) {
+		this.tip = tip;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getLozinka() {
+		return lozinka;
+	}
+
+	public void setLozinka(String lozinka) {
+		this.lozinka = lozinka;
+	}
+	
+	@Override
+	public String toString() {
+		return "Administrator [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", tip=" + tip + ", email="
+				+ email + ", lozinka=" + lozinka + "]";
+	}
+
+}
