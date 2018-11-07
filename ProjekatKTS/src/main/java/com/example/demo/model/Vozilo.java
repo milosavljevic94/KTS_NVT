@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -11,8 +13,9 @@ import javax.persistence.Table;
 @Table(name = "vozilo")
 public class Vozilo implements Serializable {
 	@Id
-	@Column(name = "vozilo_id")
-	String id;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	Long id;
+	
 	
 	@Column(nullable = false)
 	Stajaliste stajaliste;
@@ -23,10 +26,21 @@ public class Vozilo implements Serializable {
 	@Column(nullable = false)
 	TipVozila tip;
 	
-	public String getId() {
+	public Vozilo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Vozilo(Long id, Stajaliste stajaliste, Linija linija, TipVozila tip) {
+		super();
+		this.id = id;
+		this.stajaliste = stajaliste;
+		this.linija = linija;
+		this.tip = tip;
+	}
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public Stajaliste getStajaliste() {
@@ -46,5 +60,10 @@ public class Vozilo implements Serializable {
 	}
 	public void setTip(TipVozila tip) {
 		this.tip = tip;
+	}
+	
+	@Override
+	public String toString() {
+		return "Vozilo [id=" + id + ", stajaliste=" + stajaliste + ", linija=" + linija + ", tip=" + tip + "]";
 	}
 }
