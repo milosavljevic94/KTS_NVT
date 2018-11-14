@@ -22,7 +22,6 @@ public class StavkaCenovnika {
 
 	public StavkaCenovnika() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public StavkaCenovnika(Long id, Long idCenovnika, Long idKarte, int cenaKarte) {

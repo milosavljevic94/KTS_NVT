@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "korisnici")
@@ -26,13 +27,14 @@ public class Korisnik implements Serializable{
 	
 	private String email;
 	
+	@NotNull
 	private String lozinka;
 
 	public Korisnik() {
 		super();
 	}
 
-	public Korisnik(Long id, String ime, String prezime, TipKorisnika tip, String email, String lozinka) {
+	public Korisnik(Long id, String ime, String prezime, TipKorisnika tip, String email, @NotNull String lozinka) {
 		super();
 		this.id = id;
 		this.ime = ime;

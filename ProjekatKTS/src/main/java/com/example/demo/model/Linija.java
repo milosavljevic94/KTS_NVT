@@ -28,18 +28,9 @@ public class Linija implements Serializable {
 	@ManyToMany
 	List<Stajaliste> stajalista;
 	
-	//@Column(name = "polasciRadnidan")
 	@OneToMany
 	List<Polazak> polasci;
 	
-	/*
-	@ElementCollection
-	List<String> polasciSubota;
-	
-	//@Column(name = "polasciNedelja")
-	@ElementCollection
-	List<String> polasciNedelja;
-	*/
 	@Enumerated(EnumType.STRING)
 	TipVozila tip;
 

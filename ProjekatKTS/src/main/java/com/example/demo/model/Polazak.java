@@ -13,11 +13,11 @@ import javax.persistence.Table;
 public class Polazak implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	Long id;
+	private Long id;
 	
-	String dan;
+	private String dan;
 	
-	String vreme;
+	private String vreme;
 	
 	public Polazak() {
 		super();

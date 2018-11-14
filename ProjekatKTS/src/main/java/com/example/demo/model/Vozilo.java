@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,24 +14,24 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "vozilo")
 public class Vozilo implements Serializable {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	Long id;
-	
-	
-	@Column(nullable = false)
-	Stajaliste stajaliste;
+	private Long id;
 	
 	@Column(nullable = false)
-	Linija linija;
+	private Stajaliste stajaliste;
 	
 	@Column(nullable = false)
-	TipVozila tip;
+	private Linija linija;
+	
+	@Enumerated(EnumType.STRING)
+	private TipVozila tip;
 	
 	public Vozilo() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+	
 	public Vozilo(Long id, Stajaliste stajaliste, Linija linija, TipVozila tip) {
 		super();
 		this.id = id;

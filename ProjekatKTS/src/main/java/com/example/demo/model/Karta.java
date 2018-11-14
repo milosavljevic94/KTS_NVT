@@ -1,6 +1,8 @@
 package com.example.demo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +18,7 @@ public class Karta {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@Enumerated(EnumType.STRING)
 	private TipKarte tip;
 	
 	private boolean aktivirana;
@@ -30,7 +33,6 @@ public class Karta {
 
 	public Karta() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Karta(Long id, TipKarte tip, boolean aktivirana, Date vaziOd, Date vaziDo, int cena, Korisnik vlasnik) {

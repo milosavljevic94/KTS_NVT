@@ -27,7 +27,6 @@ public class Cenovnik {
 
 	public Cenovnik() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Cenovnik(Long id, Date datumOd, Date datumDo, Map<TipKarte, Integer> ceneKarata) {
