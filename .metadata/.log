@@ -2430,3 +2430,25 @@ java.util.concurrent.TimeoutException
 		src/main/java[*]: {CHILDREN}
 			com.example.demo.model[*]: {CHILDREN}
 				Stajaliste.java[*]: {PRIMARY WORKING COPY}]
+
+!ENTRY org.eclipse.ui 2 2 2018-11-14 18:02:02.334
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.ui.projectPropertyPage (bundle: org.springframework.ide.eclipse.boot.validation, propertyPage: org.springframework.ide.eclipse.boot.validation.preferences.BootValidationProjectPropertyPage)
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2018-11-14 18:05:25.674
+!MESSAGE changeEvent = org.eclipse.jdt.core.ElementChangedEvent[source=Java Model[*]: {CHILDREN}
+	ProjekatKTS[*]: {CHILDREN}
+		src/main/java[*]: {CHILDREN}
+			com.example.demo.model[*]: {CHILDREN}
+				Vozilo.java[*]: {PRIMARY WORKING COPY}]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2018-11-14 18:05:25.674
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yRuqijXw
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2018-11-14 18:05:25.674
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.yRuqijXw
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2018-11-14 18:05:25.674
+!MESSAGE subsribers = null
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2018-11-14 18:05:25.674
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.yRuqijXw => OK
