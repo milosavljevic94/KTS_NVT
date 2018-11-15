@@ -1,11 +1,14 @@
 package com.example.demo.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import java.util.Date;
@@ -29,6 +32,7 @@ public class Karta {
 	
 	private int cena;
 	
+	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private Korisnik vlasnik;
 
 	public Karta() {
@@ -107,7 +111,5 @@ public class Karta {
 		return "Karta [id=" + id + ", tip=" + tip + ", aktivirana=" + aktivirana + ", vaziOd=" + vaziOd + ", vaziDo="
 				+ vaziDo + ", cena=" + cena + ", vlasnik=" + vlasnik + "]";
 	}
-	
-	
 	
 }
