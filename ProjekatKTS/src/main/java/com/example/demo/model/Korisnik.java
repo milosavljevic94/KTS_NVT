@@ -1,45 +1,52 @@
 package com.example.demo.model;
 
-import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "korisnici")
-public class Korisnik implements Serializable{
-
-	private static final long serialVersionUID = -5031209709335267606L;
-
+@Table(name = "korisnik")
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public class Korisnik {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.TABLE)
+	@Column(name = "id" , unique = true, nullable = false)
 	private Long id;
 	
+	@Column(name = "ime")
 	private String ime;
 	
+	@Column(name = "prezime")
 	private String prezime;
 	
-	private TipKorisnika tip;
-	
+	@Column(name = "email")
 	private String email;
 	
 	@NotNull
 	private String lozinka;
+	
+	@OneToMany(mappedBy = "korisnik", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
+    private Set<KorisnikAuthority> korisnikAuthorities = new HashSet<KorisnikAuthority>();
 
-	public Korisnik() {
-		super();
-	}
+	public Korisnik() {};
 
-	public Korisnik(Long id, String ime, String prezime, TipKorisnika tip, String email, @NotNull String lozinka) {
+	public Korisnik(Long id, String ime, String prezime, String email, @NotNull String lozinka) {
 		super();
 		this.id = id;
 		this.ime = ime;
 		this.prezime = prezime;
-		this.tip = tip;
 		this.email = email;
 		this.lozinka = lozinka;
 	}
@@ -68,14 +75,6 @@ public class Korisnik implements Serializable{
 		this.prezime = prezime;
 	}
 
-	public TipKorisnika getTip() {
-		return tip;
-	}
-
-	public void setTip(TipKorisnika tip) {
-		this.tip = tip;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -92,9 +91,17 @@ public class Korisnik implements Serializable{
 		this.lozinka = lozinka;
 	}
 
+	public Set<KorisnikAuthority> getKorisnikAuthorities() {
+		return korisnikAuthorities;
+	}
+
+	public void setKorisnikAuthorities(Set<KorisnikAuthority> korisnikAuthorities) {
+		this.korisnikAuthorities = korisnikAuthorities;
+	}
+
 	@Override
 	public String toString() {
-		return "Korisnik [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", tip=" + tip + ", email="
+		return "Korisnik [id=" + id + ", ime=" + ime + ", prezime=" + prezime + ", email="
 				+ email + ", lozinka=" + lozinka + "]";
 	}
 
