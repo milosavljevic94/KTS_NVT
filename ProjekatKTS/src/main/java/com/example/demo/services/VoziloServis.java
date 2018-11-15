@@ -17,7 +17,7 @@ public class VoziloServis {
 		return voziloRepo.findAll();	
 	}
 
-	public Vozilo getOne(String id) {
+	public Vozilo getOne(Long id) {
 		return voziloRepo.getOne(id);
 	}
 

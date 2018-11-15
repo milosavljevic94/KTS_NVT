@@ -17,7 +17,7 @@ public class LinijaServis {
 		return linijaRepo.findAll();	
 	}
 
-	public Linija getOne(String broj) {
+	public Linija getOne(Long broj) {
 		return linijaRepo.getOne(broj);
 	}
 

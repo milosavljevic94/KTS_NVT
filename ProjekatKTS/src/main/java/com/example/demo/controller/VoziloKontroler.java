@@ -28,7 +28,7 @@ public class VoziloKontroler {
 
 	@DeleteMapping(value = "delete/{id}")
 	public ResponseEntity<Void> deleteVozilo(@RequestParam("id") String id){
-		Vozilo vozilo1 = voziloServis.getOne(id);
+		Vozilo vozilo1 = voziloServis.getOne(Long.parseLong(id));
 		if (vozilo1 == null) {
 			throw new ResourceNotFoundException();
 		}

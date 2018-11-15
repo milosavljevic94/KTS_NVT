@@ -28,7 +28,7 @@ public class LinijaKontroler {
 
 	@DeleteMapping(value = "delete/{broj}")
 	public ResponseEntity<Void> deleteLinija(@RequestParam("broj") String broj){
-		Linija linija1 = linijaServis.getOne(broj);
+		Linija linija1 = linijaServis.getOne(Long.parseLong(broj));
 		if (linija1 == null) {
 			throw new ResourceNotFoundException();
 		}
