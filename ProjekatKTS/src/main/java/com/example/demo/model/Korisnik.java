@@ -37,18 +37,20 @@ public class Korisnik {
 	@NotNull
 	private String lozinka;
 	
+	@Column(name = "tip")
+	private TipKorisnika tip;
+	
 	@OneToMany(mappedBy = "korisnik", fetch = FetchType.LAZY, cascade = CascadeType.REFRESH)
     private Set<KorisnikAuthority> korisnikAuthorities = new HashSet<KorisnikAuthority>();
 
 	public Korisnik() {};
 
-	public Korisnik(Long id, String ime, String prezime, String email, @NotNull String lozinka) {
-		super();
-		this.id = id;
+	public Korisnik(String ime, String prezime, String email, @NotNull String lozinka) {
 		this.ime = ime;
 		this.prezime = prezime;
 		this.email = email;
 		this.lozinka = lozinka;
+		this.tip = TipKorisnika.gradjanin;
 	}
 
 	public Long getId() {
@@ -91,6 +93,14 @@ public class Korisnik {
 		this.lozinka = lozinka;
 	}
 
+	public TipKorisnika getTip() {
+		return tip;
+	}
+
+	public void setTip(TipKorisnika tip) {
+		this.tip = tip;
+	}
+
 	public Set<KorisnikAuthority> getKorisnikAuthorities() {
 		return korisnikAuthorities;
 	}
@@ -98,6 +108,19 @@ public class Korisnik {
 	public void setKorisnikAuthorities(Set<KorisnikAuthority> korisnikAuthorities) {
 		this.korisnikAuthorities = korisnikAuthorities;
 	}
+	
+	public void dodajKorisnikAuthority(KorisnikAuthority korAuth)
+    {
+		korisnikAuthorities.add(korAuth);
+    }
+	
+	public KorisnikAuthority getPrviKorisnikAuthority()
+    {
+        if(!this.korisnikAuthorities.isEmpty()){
+            return this.korisnikAuthorities.iterator().next();
+        }
+        return null;
+    }
 
 	@Override
 	public String toString() {
