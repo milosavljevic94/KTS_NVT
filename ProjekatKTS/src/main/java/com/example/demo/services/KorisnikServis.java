@@ -1,8 +1,13 @@
 package com.example.demo.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.example.demo.dto.KorisnikDTO;
+import com.example.demo.dto.LoginRequestDTO;
 import com.example.demo.dto.LoginResponseDTO;
 import com.example.demo.dto.RegistracijaDTO;
 import com.example.demo.model.Administrator;
@@ -37,10 +42,19 @@ public class KorisnikServis {
 	@Autowired
     private PasswordEncoder passwordEncoder;
 	
-	public Korisnik getUserByUsername(String username)
-    {
+	public Korisnik save(Korisnik kor) {
+		this.korRep.save(kor);
+		return kor;
+	}
+	
+	public Korisnik getUserByUsername(String username) {
 		Korisnik kor = null;
 		kor = this.korRep.findByUsername(username);
+        return kor;
+    }
+	
+	public Korisnik getUserById(Long id) {
+		Korisnik kor = this.korRep.getOne(id);
         return kor;
     }
 	
@@ -83,5 +97,19 @@ public class KorisnikServis {
 		}
 		return new LoginResponseDTO(kor);
     }
+	
+	public Korisnik promeniLozinku(LoginRequestDTO logRegDTO) {
+		Korisnik kor = korRep.findByUsername(logRegDTO.getEmail());
+		kor.setLozinka(logRegDTO.getLozinka());
+        return kor;
+    }
+	
+	public List<KorisnikDTO> sviKorisnici() {
+		List<Korisnik> korisnici = korRep.findAll();
+		List<KorisnikDTO> korisniciDTO = new ArrayList<>();
+		for (Korisnik kor : korisnici)
+			korisniciDTO.add(new KorisnikDTO(kor));
+		return korisniciDTO;
+	}
 
 }

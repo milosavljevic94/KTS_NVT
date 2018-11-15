@@ -1,6 +1,7 @@
 package com.example.demo.dto;
 
 import com.example.demo.model.Korisnik;
+import com.example.demo.model.TipKorisnika;
 
 public class KorisnikDTO {
 	
@@ -9,6 +10,7 @@ public class KorisnikDTO {
 	private String prezime;
 	private String email;
 	private String lozinka;
+	private TipKorisnika tip;
 	
 	public KorisnikDTO (Korisnik kor) {
 		this.id = kor.getId();
@@ -16,6 +18,7 @@ public class KorisnikDTO {
 		this.prezime = kor.getPrezime();
 		this.email = kor.getEmail();
 		this.lozinka = kor.getLozinka();
+		this.tip = kor.getTip();
 	}
 
 	public Long getId() {
@@ -56,5 +59,13 @@ public class KorisnikDTO {
 
 	public void setLozinka(String lozinka) {
 		this.lozinka = lozinka;
+	}
+
+	public TipKorisnika getTip() {
+		return tip;
+	}
+
+	public void setTip(TipKorisnika tip) {
+		this.tip = tip;
 	}
 }
