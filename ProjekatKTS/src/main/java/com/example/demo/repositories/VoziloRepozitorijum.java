@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.model.Vozilo;
 
 @Repository
-public interface VoziloRepozitorijum extends JpaRepository<Vozilo, String> {
+public interface VoziloRepozitorijum extends JpaRepository<Vozilo, Long> {
 	
 }
