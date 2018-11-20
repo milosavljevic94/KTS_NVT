@@ -19,10 +19,10 @@ public class Vozilo implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	private Stajaliste stajaliste;
 	
-	@Column(nullable = false)
+	//@Column(nullable = false)
 	private Linija linija;
 	
 	@Enumerated(EnumType.STRING)
