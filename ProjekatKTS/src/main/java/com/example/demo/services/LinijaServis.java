@@ -25,8 +25,9 @@ public class LinijaServis {
 		return linijaRepo.save(linija);
 	}
 
-	public void delete(Linija linija) {
-		linijaRepo.delete(linija);	
+	public void delete(Long id) {
+		linijaRepo.deleteById(id);
+		//linijaRepo.delete(linija);	
 	}
 		
 		
