@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.dto.KorisnikDTO;
 import com.example.demo.dto.LoginRequestDTO;
@@ -22,6 +23,7 @@ import com.example.demo.repositories.KorisnikAuthorityRepozitorijum;
 import com.example.demo.repositories.KorisnikRepozitorijum;
 import com.example.demo.repositories.ZaposleniRepozitorijum;
 
+@Service
 public class KorisnikServis {
 	
 	@Autowired
@@ -63,6 +65,7 @@ public class KorisnikServis {
 		//u bazi se nalaze predefinisani tipovi korisnika
 		Authority authority = this.authRep.findByName(regDTO.getTip());
 		Korisnik kor = new Korisnik(regDTO.getIme(), regDTO.getPrezime(), regDTO.getEmail(), regDTO.getLozinka());
+		this.korRep.save(kor);
 		KorisnikAuthority korAuth = new KorisnikAuthority();
 		korAuth.setAuthority(authority);
 		this.korAuthRep.save(korAuth);
@@ -78,6 +81,7 @@ public class KorisnikServis {
 				kor.setId(admin.getId());
 				kor.setTip(TipKorisnika.administrator);
 				kor.dodajKorisnikAuthority(korAuth);
+				this.korRep.save(kor);
 				break;
 			}
 			case "ZAPOSLENI":
@@ -90,6 +94,7 @@ public class KorisnikServis {
 				kor.setId(zap.getId());
 				kor.setTip(TipKorisnika.zaposleni);
 				kor.dodajKorisnikAuthority(korAuth);
+				this.korRep.save(kor);
 				break;
 			}
 			default:

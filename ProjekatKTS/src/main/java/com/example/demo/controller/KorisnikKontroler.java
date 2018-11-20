@@ -15,6 +15,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.KorisnikDTO;
 import com.example.demo.dto.LoginRequestDTO;
@@ -24,6 +25,7 @@ import com.example.demo.model.Korisnik;
 import com.example.demo.security.TokenUtils;
 import com.example.demo.services.KorisnikServis;
 
+@RestController
 public class KorisnikKontroler {
 	
 	@Autowired
