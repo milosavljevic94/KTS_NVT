@@ -6,18 +6,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.KartaDTO;
-import com.example.demo.exceptions.ResourceNotFoundException;
 import com.example.demo.model.Karta;
 import com.example.demo.services.KartaServis;
 
@@ -71,7 +67,7 @@ public class KartaKontroler {
 		return new ResponseEntity<>(new KartaDTO(karta), HttpStatus.CREATED);	
 	}
 	
-	//Izmeni kartu
+	//Izmeni postojecu kartu
 	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<KartaDTO> updateKarta(@RequestBody KartaDTO kartaDTO){
 		//karta mora postojati

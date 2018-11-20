@@ -28,7 +28,6 @@ public class KartaServis {
 
 	public void delete(Long id) {
 		kartaRepo.deleteById(id);
-		//kartaRepo.delete(karta);	
 	}
 	
 }
