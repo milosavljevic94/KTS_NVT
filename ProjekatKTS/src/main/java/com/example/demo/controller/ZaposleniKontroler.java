@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,10 +20,18 @@ import com.example.demo.model.Zaposleni;
 import com.example.demo.services.ZaposleniServis;
 
 @RestController
-@RequestMapping(value = "api/admin/zaposleni")
+@RequestMapping(value = "api/zaposleni")
 public class ZaposleniKontroler {
 	@Autowired
 	ZaposleniServis zaposleniServis;
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<KorisnikDTO> getZaposleni(@PathVariable Long id) {
+		Zaposleni zap = zaposleniServis.getOne(id);
+		if (zap == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(new KorisnikDTO(zap), HttpStatus.OK);
+	}
 
 	@DeleteMapping(value = "/obrisiZaposlenog/{id}")
 	public ResponseEntity<Void> obrisiZaposlenog(@RequestParam("id") Long id) {

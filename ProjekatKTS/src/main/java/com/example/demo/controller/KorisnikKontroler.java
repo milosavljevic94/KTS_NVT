@@ -12,6 +12,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,6 +27,7 @@ import com.example.demo.security.TokenUtils;
 import com.example.demo.services.KorisnikServis;
 
 @RestController
+@RequestMapping(value = "api/korisnik")
 public class KorisnikKontroler {
 	
 	@Autowired
@@ -40,7 +42,7 @@ public class KorisnikKontroler {
 	@Autowired
 	TokenUtils tokenUtils;
 	
-	@RequestMapping(value = "/api/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<?> login(@RequestBody LoginRequestDTO loginDTO) {
         try {
         	// Perform the authentication
@@ -63,7 +65,7 @@ public class KorisnikKontroler {
         }
 	}
 	
-	@RequestMapping(value = "/api/registracija", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/registracija", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registracija(@RequestBody RegistracijaDTO regDTO)
     {
         LoginResponseDTO logRepDTO = this.korServis.registracija(regDTO);
@@ -73,7 +75,7 @@ public class KorisnikKontroler {
             return new ResponseEntity<>(regDTO, HttpStatus.CREATED);
     }
 	
-	@RequestMapping(value = "/korisnik/sviKorisnici", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/sviKorisnici", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<KorisnikDTO>> sviKorisnici()  {
         List<KorisnikDTO> korisniciDTO = this.korServis.sviKorisnici();
         if (korisniciDTO == null)
@@ -81,5 +83,21 @@ public class KorisnikKontroler {
         else
             return new ResponseEntity<>(korisniciDTO, HttpStatus.OK);
     }
+	
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<KorisnikDTO> getKorisnik(@PathVariable Long id) {
+		Korisnik kor = korServis.getUserById(id);
+		if (kor == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
+	}
+	
+	@RequestMapping(value="/{email}", method=RequestMethod.GET)
+	public ResponseEntity<KorisnikDTO> getKorisnikByEmail(@PathVariable String email) {
+		Korisnik kor = korServis.getUserByUsername(email);
+		if (kor == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
+	}
 
 }
