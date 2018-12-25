@@ -53,7 +53,7 @@ public class StajalisteKontroler {
 	}
 	
 	//New stajaliste.
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<StajalisteDTO> saveStajaliste(@RequestBody StajalisteDTO stajDTO){
 		Stajaliste s = new Stajaliste();
 		
@@ -69,7 +69,7 @@ public class StajalisteKontroler {
 	}
 	
 	//Update stajaliste.
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<StajalisteDTO> updateStajaliste(@RequestBody StajalisteDTO stajDTO){
 		
 		Stajaliste s = stajalisteSer.getOne(stajDTO.getId());

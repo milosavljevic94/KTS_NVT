@@ -62,7 +62,7 @@ public class VoziloKontroler {
 
 	
 	//Create new vozilo.
-	@RequestMapping(method = RequestMethod.POST, consumes = "aplication/json")
+	@RequestMapping(value="/add", method = RequestMethod.POST, consumes = "aplication/json")
 	public ResponseEntity<VoziloDTO> newVozilo(@RequestBody VoziloDTO voziloDto){
 			
 		Vozilo vozilo = new Vozilo();
@@ -126,7 +126,7 @@ public class VoziloKontroler {
 	
 	
 	//Update vozilo.
-	@RequestMapping(method = RequestMethod.PUT, consumes = "aplication/json")
+	@RequestMapping(value="/update", method = RequestMethod.PUT, consumes = "aplication/json")
 	public ResponseEntity<VoziloDTO> updateVozilo(@RequestBody VoziloDTO voziloDto){
 			
 		Vozilo vozilo = voziloServis.getOne(voziloDto.getId());

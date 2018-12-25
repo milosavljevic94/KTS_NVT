@@ -53,7 +53,7 @@ public class LinijaKontroler {
 	}
 	
 	//dodaj novu liniju
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<LinijaDTO> saveLinija(@RequestBody LinijaDTO linijaDTO){
 		Linija linija = new Linija();
 		linija.setId(linijaDTO.getId());
@@ -90,7 +90,7 @@ public class LinijaKontroler {
 	}
 	
 	//Izmeni postojecu liniju
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<LinijaDTO> updateLinija(@RequestBody LinijaDTO linijaDTO){
 		//linija mora postojati
 		Linija linija = linijaServis.getOne(linijaDTO.getId()); 

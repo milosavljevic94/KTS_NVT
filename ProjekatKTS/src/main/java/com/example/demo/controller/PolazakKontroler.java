@@ -51,7 +51,7 @@ public class PolazakKontroler {
 	}
 	
 	//dodaj novi polazak
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<PolazakDTO> savePolazak(@RequestBody PolazakDTO polazakDTO){
 		Polazak polazak = new Polazak();
 		polazak.setId(polazakDTO.getId());
@@ -63,7 +63,7 @@ public class PolazakKontroler {
 	}
 	
 	//Izmeni postojeci polazak
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<PolazakDTO> updatePolazak(@RequestBody PolazakDTO polazakDTO){
 		//polazak mora postojati
 		Polazak polazak = polazakServis.getOne(polazakDTO.getId()); 

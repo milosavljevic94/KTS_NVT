@@ -52,7 +52,7 @@ public class KartaKontroler {
 	}
 	
 	//dodaj novu kartu
-	@RequestMapping(method=RequestMethod.POST, consumes="application/json")
+	@RequestMapping(value="/add", method=RequestMethod.POST, consumes="application/json")
 	public ResponseEntity<KartaDTO> saveKarta(@RequestBody KartaDTO kartaDTO){
 		Karta karta = new Karta();
 		karta.setId(kartaDTO.getId());
@@ -68,7 +68,7 @@ public class KartaKontroler {
 	}
 	
 	//Izmeni postojecu kartu
-	@RequestMapping(method=RequestMethod.PUT, consumes="application/json")
+	@RequestMapping(value="/update", method=RequestMethod.PUT, consumes="application/json")
 	public ResponseEntity<KartaDTO> updateKarta(@RequestBody KartaDTO kartaDTO){
 		//karta mora postojati
 		Karta karta = kartaServis.getOne(kartaDTO.getId()); 
