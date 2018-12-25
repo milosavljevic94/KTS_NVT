@@ -14,3 +14,7 @@ local.properties
 # STS (Spring Tool Suite)
 .springBeans
 ProjekatKTS/src/main/resources/application\.properties
+ProjekatKTS/src/main/resources/application.properties
+
+#Project
+.application.properties
