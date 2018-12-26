@@ -1,5 +1,6 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.dto.KorisnikDTO;
+import com.example.demo.dto.PolazakDTO;
+import com.example.demo.dto.StajalisteDTO;
+import com.example.demo.dto.VoziloDTO;
 import com.example.demo.exceptions.ResourceNotFoundException;
+import com.example.demo.model.Linija;
+import com.example.demo.model.Polazak;
+import com.example.demo.model.Stajaliste;
+import com.example.demo.model.Vozilo;
 import com.example.demo.model.Zaposleni;
 import com.example.demo.services.ZaposleniServis;
 
@@ -33,7 +41,7 @@ public class ZaposleniKontroler {
 		return new ResponseEntity<>(new KorisnikDTO(zap), HttpStatus.OK);
 	}
 
-	@DeleteMapping(value = "/obrisiZaposlenog/{id}")
+	@RequestMapping(value = "/{id}", method=RequestMethod.DELETE)
 	public ResponseEntity<Void> obrisiZaposlenog(@RequestParam("id") Long id) {
 		Zaposleni zap = zaposleniServis.getOne(id);
 		if (zap == null)
@@ -42,7 +50,7 @@ public class ZaposleniKontroler {
 		return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/sviZaposleni", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<KorisnikDTO>> sviZaposleni() {
         List<KorisnikDTO> zaposleniDTO = this.zaposleniServis.sviZaposleni();
         if(zaposleniDTO == null)
@@ -51,7 +59,7 @@ public class ZaposleniKontroler {
             return new ResponseEntity<>(zaposleniDTO, HttpStatus.OK);
     }
 	
-	@RequestMapping(value = "/izmeniZaposlenog", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/update", method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Boolean> izmeniZaposlenog(@RequestBody KorisnikDTO korDTO) {
 		KorisnikDTO zap = zaposleniServis.izmeniZaposlenog(korDTO);
 		if (zap == null)

@@ -194,7 +194,7 @@ public class VoziloKontroler {
 	
 	
 	//Delete vozilo.
-	@RequestMapping(value = "delete/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteVozilo(@PathVariable Long id){
 		Vozilo vozilo = voziloServis.getOne(id);
 		if (vozilo == null) {
