@@ -12,6 +12,10 @@ public class KorisnikDTO {
 	private String lozinka;
 	private TipKorisnika tip;
 	
+	public KorisnikDTO() {
+		super();
+	}
+
 	public KorisnikDTO (Korisnik kor) {
 		this.id = kor.getId();
 		this.ime = kor.getIme();

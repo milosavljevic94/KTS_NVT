@@ -8,6 +8,10 @@ public class PolazakDTO {
 	private String dan;
 	private String vreme;
 	
+	public PolazakDTO() {
+		super();
+	}
+
 	public PolazakDTO (Polazak pol) {
 		this.id = pol.getId();
 		this.dan = pol.getDan();

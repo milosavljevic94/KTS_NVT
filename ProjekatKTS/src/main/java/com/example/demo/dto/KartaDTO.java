@@ -16,6 +16,10 @@ public class KartaDTO {
 	private int cena;
 	private Korisnik vlasnik;
 	
+	public KartaDTO() {
+		super();
+	}
+
 	public KartaDTO (Karta k) {
 		this.id = k.getId();
 		this.tip = k.getTip();

@@ -16,6 +16,10 @@ public class LinijaDTO {
 	private List<PolazakDTO> polasci;
 	private TipVozila tip;
 	
+	public LinijaDTO() {
+		super();
+	}
+
 	public LinijaDTO (Linija lin) {
 		this.id = lin.getId();
 		this.broj = lin.getBroj();

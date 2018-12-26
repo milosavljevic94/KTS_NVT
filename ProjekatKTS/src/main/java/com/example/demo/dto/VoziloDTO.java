@@ -10,6 +10,10 @@ public class VoziloDTO {
 	private LinijaDTO linija;
 	private TipVozila tip;
 	
+	public VoziloDTO() {
+		super();
+	}
+
 	public VoziloDTO (Vozilo voz) {
 		this.id = voz.getId();
 		if(voz.getStajaliste()!=null)

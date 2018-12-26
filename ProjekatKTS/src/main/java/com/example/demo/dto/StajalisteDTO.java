@@ -10,6 +10,11 @@ public class StajalisteDTO {
 	private Double lokacijaY;
 	private String adresa;
 	
+	public StajalisteDTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public StajalisteDTO (Stajaliste staj) {
 		this.id = staj.getId();
 		this.naziv = staj.getNaziv();
