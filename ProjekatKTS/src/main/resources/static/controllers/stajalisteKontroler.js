@@ -1,4 +1,4 @@
-app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http, $rootScope, $location, $window, userPersistenceService) {
+app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http, $rootScope, $location, $window) {
 	
 	$scope.stajalista = [{id:32, naziv:"naziv1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"}];
 	
@@ -30,7 +30,7 @@ app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http,
 	};
 	
 	$scope.updateStajaliste = function(stajaliste) {
-		stajalisteFactory.updateLek(stajaliste).then(function(data) {
+		stajalisteFactory.updateStajaliste(stajaliste).then(function(data) {
 			//$scope.refresh();
 			toast('Stajaliste ' + stajaliste.naziv + " azurirano.");
 		}).catch(function (response) {
