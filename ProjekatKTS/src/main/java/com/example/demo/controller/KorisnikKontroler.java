@@ -33,7 +33,7 @@ public class KorisnikKontroler {
 	@Autowired
 	KorisnikServis korServis;
 	
-	//@Autowired
+	@Autowired
 	AuthenticationManager authenticationManager;
 	
 	@Autowired

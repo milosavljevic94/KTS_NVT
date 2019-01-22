@@ -41,7 +41,7 @@ public class KorisnikServis {
 	@Autowired
 	ZaposleniRepozitorijum zapRep;
 	
-	//@Autowired
+	@Autowired
     private PasswordEncoder passwordEncoder;
 	
 	public Korisnik save(Korisnik kor) {

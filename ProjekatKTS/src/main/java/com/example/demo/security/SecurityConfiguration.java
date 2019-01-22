@@ -14,8 +14,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-//@EnableWebSecurity
-//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private UserDetailsService userDetailsService;
@@ -56,7 +56,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.csrf().disable()
 				.cors().and()
 			.authorizeRequests()
-				.antMatchers("/index.html", "/api/login","/api/**").permitAll()
+				.antMatchers("/**").permitAll()
 				//.antMatchers("/index.html", "/api/login").hasAnyRole("ADMINISTRATOR","KORISNIK")
 				//.antMatchers("/primer/admin").hasAuthority("ROLE_ADMIN")
 				.anyRequest().authenticated();

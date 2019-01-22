@@ -1,8 +1,8 @@
-var app = angular.module('app',[require('angular-route')]);
+var app = angular.module('app',['ngRoute', 'ngMap']);
 
 app.config(function($routeProvider) {
 	$routeProvider.when('/',
 	{
-		templateUrl: 'index.html'
+		templateUrl: 'partials/welcome.html'
 	})
 });
