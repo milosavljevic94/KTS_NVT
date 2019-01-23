@@ -31,7 +31,7 @@ public class VoziloServisTest {
 	
 	@Before
 	public void setUp() {
-		Vozilo vozilo = new Vozilo(123L, new Stajaliste(), new Linija(), TipVozila.autobus);
+		Vozilo vozilo = new Vozilo(123L, 9L, 0L, TipVozila.autobus);
 		Mockito.when(voziloRepozitorijumMocked.getOne(123L)).thenReturn(vozilo);
 	}
 

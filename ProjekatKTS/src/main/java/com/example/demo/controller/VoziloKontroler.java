@@ -69,53 +69,8 @@ public class VoziloKontroler {
 		
 		
 		vozilo.setId(voziloDto.getId());
-		
-		
-		//StajalisteDTO
-		Stajaliste stajaliste = new Stajaliste();
-		
-		stajaliste.setId(voziloDto.getStajaliste().getId());
-		stajaliste.setNaziv(voziloDto.getStajaliste().getNaziv());
-		stajaliste.setLokacijaX(voziloDto.getStajaliste().getLokacijaX());
-		stajaliste.setLokacijaY(voziloDto.getStajaliste().getLokacijaY());
-		stajaliste.setAdresa(voziloDto.getStajaliste().getAdresa());
-		
-		vozilo.setStajaliste(stajaliste);
-		
-		
-		//LinijaDTO
-		Linija linija = new Linija();
-		
-		linija.setId(voziloDto.getLinija().getId());
-		linija.setBroj(voziloDto.getLinija().getBroj());
-		linija.setNaziv(voziloDto.getLinija().getNaziv());
-		
-		
-		List<Stajaliste> stajalista = new ArrayList<Stajaliste>();
-			for(StajalisteDTO stajalistaDTO : voziloDto.getLinija().getStajalista()) {
-				Stajaliste stajaliste2 = new Stajaliste();
-				stajaliste2.setId(stajalistaDTO.getId());
-				stajaliste2.setNaziv(stajalistaDTO.getNaziv());
-				stajaliste2.setLokacijaX(stajalistaDTO.getLokacijaX());
-				stajaliste2.setLokacijaY(stajalistaDTO.getLokacijaY());
-				stajaliste2.setAdresa(stajalistaDTO.getAdresa());
-				stajalista.add(stajaliste2);
-			}
-		linija.setStajalista(stajalista);
-		
-		//PolasciDTO
-		List<Polazak> polasci = new ArrayList<Polazak>();
-		for (PolazakDTO polazakDto : voziloDto.getLinija().getPolasci()) {
-			Polazak polazak = new Polazak();
-			polazak.setId(polazakDto.getId());
-			polazak.setDan(polazakDto.getDan());
-			polazak.setVreme(polazakDto.getVreme());
-			polasci.add(polazak);
-		}
-		linija.setPolasci(polasci);
-		linija.setTip(voziloDto.getLinija().getTip());
-		
-		vozilo.setLinija(linija);
+		vozilo.setStajaliste(voziloDto.getStajaliste());
+		vozilo.setLinija(voziloDto.getLinija());
 		vozilo.setTip(voziloDto.getTip());
 			
 		vozilo = voziloServis.save(vozilo);
@@ -136,53 +91,8 @@ public class VoziloKontroler {
 		}
 		
 		vozilo.setId(voziloDto.getId());
-		
-		
-		//StajalisteDTO
-		Stajaliste stajaliste = new Stajaliste();
-		
-		stajaliste.setId(voziloDto.getStajaliste().getId());
-		stajaliste.setNaziv(voziloDto.getStajaliste().getNaziv());
-		stajaliste.setLokacijaX(voziloDto.getStajaliste().getLokacijaX());
-		stajaliste.setLokacijaY(voziloDto.getStajaliste().getLokacijaY());
-		stajaliste.setAdresa(voziloDto.getStajaliste().getAdresa());
-		
-		vozilo.setStajaliste(stajaliste);
-		
-		
-		//LinijaDTO
-		Linija linija = new Linija();
-		
-		linija.setId(voziloDto.getLinija().getId());
-		linija.setBroj(voziloDto.getLinija().getBroj());
-		linija.setNaziv(voziloDto.getLinija().getNaziv());
-		
-		
-		List<Stajaliste> stajalista = new ArrayList<Stajaliste>();
-			for(StajalisteDTO stajalistaDTO : voziloDto.getLinija().getStajalista()) {
-				Stajaliste stajaliste2 = new Stajaliste();
-				stajaliste2.setId(stajalistaDTO.getId());
-				stajaliste2.setNaziv(stajalistaDTO.getNaziv());
-				stajaliste2.setLokacijaX(stajalistaDTO.getLokacijaX());
-				stajaliste2.setLokacijaY(stajalistaDTO.getLokacijaY());
-				stajaliste2.setAdresa(stajalistaDTO.getAdresa());
-				stajalista.add(stajaliste2);
-			}
-		linija.setStajalista(stajalista);
-		
-		//PolasciDTO
-		List<Polazak> polasci = new ArrayList<Polazak>();
-		for (PolazakDTO polazakDto : voziloDto.getLinija().getPolasci()) {
-			Polazak polazak = new Polazak();
-			polazak.setId(polazakDto.getId());
-			polazak.setDan(polazakDto.getDan());
-			polazak.setVreme(polazakDto.getVreme());
-			polasci.add(polazak);
-		}
-		linija.setPolasci(polasci);
-		linija.setTip(voziloDto.getLinija().getTip());
-		
-		vozilo.setLinija(linija);
+		vozilo.setStajaliste(voziloDto.getStajaliste());
+		vozilo.setLinija(voziloDto.getLinija());
 		vozilo.setTip(voziloDto.getTip());
 			
 		vozilo = voziloServis.save(vozilo);

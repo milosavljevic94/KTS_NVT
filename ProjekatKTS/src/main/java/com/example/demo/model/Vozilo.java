@@ -20,10 +20,10 @@ public class Vozilo implements Serializable {
 	private Long id;
 	
 	//@Column(nullable = false)
-	private Stajaliste stajaliste;
+	private Long idTrenutnoStajaliste;
 	
 	//@Column(nullable = false)
-	private Linija linija;
+	private Long idLinija;
 	
 	@Enumerated(EnumType.STRING)
 	private TipVozila tip;
@@ -32,11 +32,11 @@ public class Vozilo implements Serializable {
 		super();
 	}
 	
-	public Vozilo(Long id, Stajaliste stajaliste, Linija linija, TipVozila tip) {
+	public Vozilo(Long id, long Idstajaliste, Long IdLinije, TipVozila tip) {
 		super();
 		this.id = id;
-		this.stajaliste = stajaliste;
-		this.linija = linija;
+		this.idTrenutnoStajaliste = Idstajaliste;
+		this.idLinija = IdLinije;
 		this.tip = tip;
 	}
 	public Long getId() {
@@ -45,17 +45,17 @@ public class Vozilo implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Stajaliste getStajaliste() {
-		return stajaliste;
+	public Long getStajaliste() {
+		return idTrenutnoStajaliste;
 	}
-	public void setStajaliste(Stajaliste stajaliste) {
-		this.stajaliste = stajaliste;
+	public void setStajaliste(Long Idstajaliste) {
+		this.idTrenutnoStajaliste = Idstajaliste;
 	}
-	public Linija getLinija() {
-		return linija;
+	public Long getLinija() {
+		return idLinija;
 	}
-	public void setLinija(Linija linija) {
-		this.linija = linija;
+	public void setLinija(Long idLinija) {
+		this.idLinija = idLinija;
 	}
 	public TipVozila getTip() {
 		return tip;
@@ -66,6 +66,6 @@ public class Vozilo implements Serializable {
 	
 	@Override
 	public String toString() {
-		return "Vozilo [id=" + id + ", stajaliste=" + stajaliste + ", linija=" + linija + ", tip=" + tip + "]";
+		return "Vozilo [id=" + id + ", stajaliste=" + idTrenutnoStajaliste + ", linija=" + idLinija + ", tip=" + tip + "]";
 	}
 }

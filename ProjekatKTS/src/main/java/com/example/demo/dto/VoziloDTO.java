@@ -6,8 +6,8 @@ import com.example.demo.model.Vozilo;
 public class VoziloDTO {
 	
 	private Long id;
-	private StajalisteDTO stajaliste;
-	private LinijaDTO linija;
+	private Long idTrenutnoStajaliste;
+	private Long idLinija;
 	private TipVozila tip;
 	
 	public VoziloDTO() {
@@ -17,9 +17,9 @@ public class VoziloDTO {
 	public VoziloDTO (Vozilo voz) {
 		this.id = voz.getId();
 		if(voz.getStajaliste()!=null)
-			this.stajaliste = new StajalisteDTO(voz.getStajaliste());
+			this.idTrenutnoStajaliste = voz.getStajaliste();
 		if(voz.getLinija()!=null)
-			this.linija = new LinijaDTO(voz.getLinija());
+			this.idLinija = voz.getLinija();
 		this.tip = voz.getTip();
 	}
 
@@ -31,20 +31,20 @@ public class VoziloDTO {
 		this.id = id;
 	}
 
-	public StajalisteDTO getStajaliste() {
-		return stajaliste;
+	public Long getStajaliste() {
+		return idTrenutnoStajaliste;
 	}
 
-	public void setStajaliste(StajalisteDTO stajaliste) {
-		this.stajaliste = stajaliste;
+	public void setStajaliste(Long stajalisteId) {
+		this.idTrenutnoStajaliste = stajalisteId;
 	}
 
-	public LinijaDTO getLinija() {
-		return linija;
+	public Long getLinija() {
+		return idLinija;
 	}
 
-	public void setLinija(LinijaDTO linija) {
-		this.linija = linija;
+	public void setLinija(Long idLinija) {
+		this.idLinija = idLinija;
 	}
 
 	public TipVozila getTip() {
