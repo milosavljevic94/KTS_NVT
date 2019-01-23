@@ -1,0 +1,33 @@
+<div ng-controller="zaposleniKontroler">
+	<form name="addLinijaForm" action="/">
+		<table border="1"  cellpadding="5">
+			<div>
+				<tr>
+					<td>Broj: </td>
+					<td><input type="text" id="broj" ng-model="linija.broj" pattern="[0-9]" required></td>
+				</tr>
+				<tr>
+					<td>Naziv: </td>
+					<td><input type="text" id="naziv" ng-model="linija.naziv" required></td>
+				</tr>
+				<tr>
+					<td align="center">Stajalista:</td>
+					<td align="center">
+						<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model='opstiSimptomiFields.fields[$index]'>
+							<option ng-repeat="simptom in placeholderBolest.opstiSimptomi" value="{{simptom}}">{{simptom}}</option>
+						</select></br>
+							<!--<input ng-repeat="field in simptomiFields.fields track by $index" type='text' ng-model='simptomiFields.fields[$index]'></td>-->
+					<td><button type='button' ng-click="addOpstiSimptomiField()">Novi</button></td>
+				</tr>
+				<tr><td>Dan:</td><td>
+				<select id="dan" ng-model="polazak.dan" required>
+					<option value="Radni dan">Radni dan</option>
+					<option value="Subota">Subota</option>
+					<option value="Nedelja">Nedelja</option>
+				</select></td></tr>
+				<tr><td>Vreme: </td><td><input type="text" id="vreme" ng-model="polazak.vreme" required></td></tr>
+				<tr><td></td><td><button ng-disabled="addLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinija()">Dodaj</button></td></tr>
+			</div>
+		</table>
+	</form>
+</div>

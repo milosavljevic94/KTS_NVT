@@ -10,5 +10,8 @@ app.config(function($routeProvider) {
 	}).when('/addStajaliste',
 	{
 		templateUrl: 'partials/addStajaliste.html'
+	}).when('/addLinija',
+	{
+		templateUrl: 'partials/addLinija.html'
 	})
 });

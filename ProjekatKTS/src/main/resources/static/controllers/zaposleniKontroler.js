@@ -15,6 +15,16 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
     
 	init();
 	
+	  $scope.stajalistaFields = { fields: [] };
+	  $scope.polasciFields = { fields: [] };
+	  
+	  $scope.addStajalisteField = function() {
+		    $scope.stajalistaFields.fields.push('');
+		  }
+	  $scope.addPolazakField = function() {
+			    $scope.polasciFields.fields.push('');
+		  }
+	
 	/*$scope.refresh = function(){
 		stajalisteFactory.getAll()
 	          .success(function(data2){
@@ -43,6 +53,16 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		});	
 	};
 	
+	$scope.addLinija = function(linija) {
+		linijaFactory.addLinija(linija).then(function(data) {
+			//$scope.refresh();
+			//toast('Stajaliste ' + stajaliste.naziv + " dodato.");
+		}).catch(function (response) {
+			//$notify.error(response.msg);
+			//toast("Stajaliste sa unetim nazivom vec postoji.");
+		});	
+	};
+	
 	$scope.updatePolazak = function(polazak) {
 		polazakFactory.updatePolazak(polazak).then(function(data) {
 			//$scope.refresh();
@@ -55,6 +75,16 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 	
 	$scope.updateStajaliste = function(stajaliste) {
 		stajalisteFactory.updateStajaliste(stajaliste).then(function(data) {
+			//$scope.refresh();
+			//toast('Stajaliste ' + stajaliste.naziv + " azurirano.");
+		}).catch(function (response) {
+			//$notify.error(response.msg);
+			//toast("Greska pri azuriranju stajalista.");
+		});	
+	};
+	
+	$scope.updateLinija = function(linija) {
+		linijaFactory.updateLinija(linija).then(function(data) {
 			//$scope.refresh();
 			//toast('Stajaliste ' + stajaliste.naziv + " azurirano.");
 		}).catch(function (response) {
@@ -83,6 +113,16 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		});	
 	};
 	
+	$scope.deleteLinija = function(linija) {
+		linijaFactory.deleteLinija(linija).then(function(data) {
+			//$scope.refresh();
+			//toast("Polazak obrisan.");
+		}).catch(function (response) {
+			//$notify.error(response.msg);
+			//toast("Greska pri brisanju polaska.");
+		});	
+	};
+	
 	/*$scope.back = function() {
 		$location.path('/displayAllStajalista');
 		//$window.history.back();
@@ -95,6 +135,12 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 	};
 	
 	$scope.saveChangesStajaliste = function() {
+		//$scope.updateStajaliste($rootScope.detailViewStajaliste);
+		//$location.path('/displayAllStajalista');
+		//$scope.refresh();
+	};
+	
+	$scope.saveChangesLinija = function() {
 		//$scope.updateStajaliste($rootScope.detailViewStajaliste);
 		//$location.path('/displayAllStajalista');
 		//$scope.refresh();
@@ -118,6 +164,30 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		$scope.stajaliste.adresa;
 		
 		$scope.addStajaliste($scope.stajaliste);
+		//$location.path('/displayAllStajalista');
+		//$scope.refresh();
+	};
+	
+	$scope.submitLinija = function() {
+		//$rootScope je vidljivo globalno
+		$scope.linija.broj;
+        $scope.linija.naziv;
+		$scope.linija.stajalista = [];
+		$scope.linija.polasci = [];
+        $scope.linija.tip;
+		
+		for(var i=0; i<$scope.stajalistaFields.fields.length; i++) {
+			if($scope.stajalistaFields.fields[i]!=="") {
+				$scope.linija.stajalista.push($scope.stajalistaFields.fields[i]);
+			}
+		}
+		for(var i=0; i<$scope.polasciFields.fields.length; i++) {
+			if($scope.polasciFields.fields[i]!=="") {
+				$scope.linija.polasci.push($scope.polasciFields.fields[i]);
+			}
+		}
+		
+		$scope.addLinija($scope.linija);
 		//$location.path('/displayAllStajalista');
 		//$scope.refresh();
 	};
