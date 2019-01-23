@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.model.Linija;
-import com.example.demo.model.Stajaliste;
 import com.example.demo.model.TipVozila;
 import com.example.demo.model.Vozilo;
 import com.example.demo.repositories.VoziloRepozitorijum;
@@ -31,7 +29,7 @@ public class VoziloServisTest {
 	
 	@Before
 	public void setUp() {
-		Vozilo vozilo = new Vozilo(123L, new Stajaliste(), new Linija(), TipVozila.autobus);
+		Vozilo vozilo = new Vozilo(123L, 9L, 0L, TipVozila.autobus);
 		Mockito.when(voziloRepozitorijumMocked.getOne(123L)).thenReturn(vozilo);
 	}
 

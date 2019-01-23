@@ -13,7 +13,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.example.demo.model.Polazak;
-import com.example.demo.model.Stajaliste;
 import com.example.demo.repositories.PolazakRepozitorijum;
 
 @RunWith(SpringRunner.class)
