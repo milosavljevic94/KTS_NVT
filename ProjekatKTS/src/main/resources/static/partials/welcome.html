@@ -1,3 +1,17 @@
 <div  ng-controller="indexKontroler">
-    <div ng-map style="width:1000px;height:500px" center="45.267136, 19.833549">
+	<table border="1"  cellpadding="5">
+			<div>
+				<tr>
+				<td><select id="linija1" ng-model="linija">
+					<option ng-repeat="linija in linije" value="{{linija.naziv}}">{{linija.naziv}}</option>
+				</select></td>
+				<td><select id="dan"ng-model="dan" required>
+					<option value="RADNI DAN">Radni dan</option>
+					<option value="SUBOTA">Subota</option>
+					<option value="NEDELJA">Nedelja</option>
+				</select></td>
+				</tr>
+			</div>
+	</table>
+    <div ng-map style="width:1000px;height:500px" center="45.267136, 19.833549"></div>
 </div>

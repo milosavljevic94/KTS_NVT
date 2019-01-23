@@ -1,0 +1,16 @@
+<div ng-controller="zaposleniKontroler">
+	<form name="addStajalisteForm" action="/">
+		<table border="1"  cellpadding="5">
+			<div>
+				<tr><td>Naziv: </td><td colspan="2"><input type="text" id="naziv" ng-model="stajaliste.naziv" required></td></tr>
+				<tr>
+					<td>Lokacija: </td>
+					<td><input type="number" step="0.0001" id="lokacijaX" ng-model="stajaliste.lokacijaX" required></td>
+					<td><input type="number" step="0.0001" id="lokacijaY" ng-model="stajaliste.lokacijaY" required></td>
+				</tr>
+				<tr><td>Adresa: </td><td colspan="2"><input type="text" id="adresa" ng-model="stajaliste.adresa" required></td></tr>
+				<tr><td></td><td><button ng-disabled="addStajalisteForm.$invalid" type="button" class='btn btn-default' ng-click="submitStajaliste()">Dodaj</button></td></tr>
+			</div>
+		</table>
+	</form>
+</div>

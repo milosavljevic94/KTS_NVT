@@ -1,0 +1,16 @@
+<div ng-controller="zaposleniKontroler">
+	<form name="addPolazakForm" action="/">
+		<table border="1"  cellpadding="5">
+			<div>
+				<tr><td>Dan:</td><td>
+				<select id="dan"ng-model="polazak.dan" required>
+					<option value="Radni dan">Radni dan</option>
+					<option value="Subota">Subota</option>
+					<option value="Nedelja">Nedelja</option>
+				</select></td></tr>
+				<tr><td>Vreme: </td><td><input type="text" id="vreme" ng-model="polazak.vreme" required></td></tr>
+				<tr><td></td><td><button ng-disabled="addPolazakForm.$invalid" type="button" class='btn btn-default' ng-click="submitPolazak()">Dodaj</button></td></tr>
+			</div>
+		</table>
+	</form>
+</div>

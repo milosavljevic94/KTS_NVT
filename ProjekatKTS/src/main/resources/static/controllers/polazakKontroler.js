@@ -4,7 +4,7 @@ app.controller('polazakKontroler', function($scope, polazakFactory, $http, $root
 	
     function init() {
     	console.log('polazakKontroler.Init');
-        polazakFactory.getAll().success(function (data2) {
+        polazakFactory.getAll().then(function (data2) {
         	$scope.polasci = data2;
 		});
     }

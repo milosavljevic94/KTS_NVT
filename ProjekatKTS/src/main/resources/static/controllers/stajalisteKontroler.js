@@ -4,7 +4,7 @@ app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http,
 	
     function init() {
     	console.log('stajalisteKontroler.Init');
-        stajalisteFactory.getAll().success(function (data2) {
+        stajalisteFactory.getAll().then(function (data2) {
         	$scope.stajalista = data2;
 		});
     }
@@ -47,17 +47,6 @@ app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http,
 			//$notify.error(response.msg);
 			toast("Greska pri brisanju stajalista.");
 		});	
-	};
-	
-	$scope.detailViewStajaliste = function(stajaliste) {
-		if(stajaliste==undefined) {
-            //za ovo treba da se napravi nekakav kuki, koji cuva podatke stajalista koje se trenutno gleda, u slucaju da se odradi refresh stranice
-		}
-		else {
-			$rootScope.detailViewStajaliste = stajaliste;
-			//$location.path('/stajalisteDetails');
-		}
-		
 	};
 	
 	/*$scope.back = function() {
