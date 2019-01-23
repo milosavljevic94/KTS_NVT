@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -12,12 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.dto.PolazakDTO;
-import com.example.demo.dto.StajalisteDTO;
 import com.example.demo.dto.VoziloDTO;
-import com.example.demo.model.Linija;
-import com.example.demo.model.Polazak;
-import com.example.demo.model.Stajaliste;
 import com.example.demo.model.Vozilo;
 import com.example.demo.services.VoziloServis;
 

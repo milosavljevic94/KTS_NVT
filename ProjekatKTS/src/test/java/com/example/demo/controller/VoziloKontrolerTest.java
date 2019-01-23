@@ -16,8 +16,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.model.Linija;
-import com.example.demo.model.Stajaliste;
 import com.example.demo.model.TipVozila;
 import com.example.demo.model.Vozilo;
 import com.example.demo.services.VoziloServis;

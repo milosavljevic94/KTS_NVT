@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.example.demo.model.Linija;
-import com.example.demo.model.Stajaliste;
 import com.example.demo.model.TipVozila;
 import com.example.demo.model.Vozilo;
 import com.example.demo.repositories.VoziloRepozitorijum;
