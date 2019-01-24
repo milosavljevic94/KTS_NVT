@@ -32,14 +32,13 @@ public class Karta {
 	
 	private int cena;
 	
-	@ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
-	private Korisnik vlasnik;
+	private Long idVlasnik;
 
 	public Karta() {
 		super();
 	}
 
-	public Karta(Long id, TipKarte tip, boolean aktivirana, Date vaziOd, Date vaziDo, int cena, Korisnik vlasnik) {
+	public Karta(Long id, TipKarte tip, boolean aktivirana, Date vaziOd, Date vaziDo, int cena, Long idVlasnik) {
 		super();
 		this.id = id;
 		this.tip = tip;
@@ -47,7 +46,7 @@ public class Karta {
 		this.vaziOd = vaziOd;
 		this.vaziDo = vaziDo;
 		this.cena = cena;
-		this.vlasnik = vlasnik;
+		this.idVlasnik = idVlasnik;
 	}
 
 	public Long getId() {
@@ -98,18 +97,18 @@ public class Karta {
 		this.cena = cena;
 	}
 
-	public Korisnik getVlasnik() {
-		return vlasnik;
+	public Long getVlasnik() {
+		return idVlasnik;
 	}
 
-	public void setVlasnik(Korisnik vlasnik) {
-		this.vlasnik = vlasnik;
+	public void setVlasnik(Long idVlasnik) {
+		this.idVlasnik = idVlasnik;
 	}
 
 	@Override
 	public String toString() {
 		return "Karta [id=" + id + ", tip=" + tip + ", aktivirana=" + aktivirana + ", vaziOd=" + vaziOd + ", vaziDo="
-				+ vaziDo + ", cena=" + cena + ", vlasnik=" + vlasnik + "]";
+				+ vaziDo + ", cena=" + cena + ", vlasnik=" + idVlasnik + "]";
 	}
 	
 }

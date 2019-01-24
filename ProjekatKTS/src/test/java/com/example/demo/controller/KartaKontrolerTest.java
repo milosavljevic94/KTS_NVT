@@ -37,7 +37,7 @@ public class KartaKontrolerTest {
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
-		Mockito.when(kartaServisMocked.getOne(13456L)).thenReturn(new Karta(13456L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, new Korisnik()));
+		Mockito.when(kartaServisMocked.getOne(13456L)).thenReturn(new Karta(13456L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, 1L));
 	}
 	
 	@Test

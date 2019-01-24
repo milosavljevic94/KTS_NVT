@@ -14,7 +14,7 @@ public class KartaDTO {
 	private Date vaziOd;
 	private Date vaziDo;
 	private int cena;
-	private Korisnik vlasnik;
+	private Long idVlasnik;
 	
 	public KartaDTO() {
 		super();
@@ -27,7 +27,7 @@ public class KartaDTO {
 		this.vaziOd = k.getVaziOd();
 		this.vaziDo = k.getVaziDo();
 		this.cena = k.getCena();
-		this.vlasnik = k.getVlasnik();
+		this.idVlasnik = k.getVlasnik();
 	}
 
 	public Long getId() {
@@ -78,12 +78,12 @@ public class KartaDTO {
 		this.cena = cena;
 	}
 
-	public Korisnik getVlasnik() {
-		return vlasnik;
+	public Long getVlasnik() {
+		return idVlasnik;
 	}
 
-	public void setVlasnik(Korisnik vlasnik) {
-		this.vlasnik = vlasnik;
+	public void setVlasnik(Long idVlasnik) {
+		this.idVlasnik = idVlasnik;
 	}
 	
 	

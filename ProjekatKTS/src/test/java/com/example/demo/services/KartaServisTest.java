@@ -32,7 +32,7 @@ public class KartaServisTest {
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
-		Karta kar = new Karta(1L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, new Korisnik());
+		Karta kar = new Karta(1L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, 1L);
 		Mockito.when(kartaRepozitorijumMocked.getOne(1L)).thenReturn(kar);
 	}
 
