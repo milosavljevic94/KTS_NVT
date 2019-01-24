@@ -1,6 +1,9 @@
 package com.example.demo.services;
 
 import static com.example.demo.constants.VoziloConstants.DB_COUNT;
+import static com.example.demo.constants.VoziloConstants.NEW_DB_STAJALISTE_ID;
+import static com.example.demo.constants.VoziloConstants.NEW_DB_ID;
+import static com.example.demo.constants.VoziloConstants.NEW_DB_LINIJA_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -11,9 +14,11 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.model.Linija;
+import com.example.demo.model.TipVozila;
 import com.example.demo.model.Vozilo;
 
 @RunWith(SpringRunner.class)
@@ -39,7 +44,29 @@ public class VoziloServisIntegrationTest {
 		assertEquals(new Long(1L), vozilo.getId());
 		
 	}
-	
+	/*
+	@Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+	public void testAdd() {
+		Vozilo testVozilo = new Vozilo();
+		testVozilo.setId(NEW_DB_ID);
+		testVozilo.setLinija(NEW_DB_LINIJA_ID);
+		testVozilo.setStajaliste(NEW_DB_STAJALISTE_ID);
+		testVozilo.setTip(TipVozila.autobus);
+		int dbSizeBefore = voziloServis.findAll().size();
+		Vozilo dbVozilo = voziloServis.save(testVozilo);
+		
+		assertThat(dbVozilo).isNotNull();
+		List<Vozilo> vozila = voziloServis.findAll();
+		//assertThat(vozila).hasSize(dbSizeBefore + 1);
+		dbVozilo = vozila.get(vozila.size()-1);
+		assertEquals(dbVozilo.getId(),NEW_DB_ID );
+		assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
+		assertEquals(dbVozilo.getLinija(),NEW_DB_LINIJA_ID);
+		
+	}
+	*/
 
 
 }
