@@ -8,12 +8,17 @@
 		<script src="http://maps.google.com/maps/api/js"></script>
 	    <title>Gradski Prevoz</title>
 	</head>
-	<body ng-controller="indexKontroler" style="background-color: #222233; color: #AACCFF; font-family: Calibri, Myriad;">
+	<body ng-controller="zaposleniKontroler" style="background-color: #222233; color: #AACCFF; font-family: Calibri, Myriad;">
 	
 		<header>
     		<h1>Gradski Prevoz</h1>
     	</header>
 		<div ng-view></div>
+
+		<!--<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model="stajalistaFields.fields[$index]">
+			<option ng-repeat="stajaliste1 in stajalista" value="{{stajaliste1}}">{{stajaliste1.naziv}}</option>
+		</select>
+		<button type="button" ng-click="addStajalisteField()">Novi</button>-->
 
 		<!--<div ng-map style="width:1000px;height:500px" center="45.267136, 19.833549">-->
 		

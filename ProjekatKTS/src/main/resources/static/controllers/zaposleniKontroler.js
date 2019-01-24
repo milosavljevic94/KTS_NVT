@@ -1,15 +1,15 @@
 app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, $http, $rootScope, $location, $window) {
-	
+
     function init() {
     	console.log('zaposleniKontroler.Init');
-        polazakFactory.getAll().then(function (data) {
-        	$scope.polasci = data;
+        polazakFactory.getAll().then(function (data1) {
+        	$scope.polasci = data1.data;
 		});
         stajalisteFactory.getAll().then(function (data2) {
-        	$scope.stajalista = data2;
+			$scope.stajalista = data2.data;
 		});
         linijaFactory.getAll().then(function (data3) {
-        	$scope.linije = data3;
+        	$scope.linije = data3.data;
 		});
     }
     
@@ -19,18 +19,23 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 	  $scope.polasciFields = { fields: [] };
 	  
 	  $scope.addStajalisteField = function() {
-		    $scope.stajalistaFields.fields.push('');
+			$scope.stajalistaFields.fields.push('');
 		  }
 	  $scope.addPolazakField = function() {
-			    $scope.polasciFields.fields.push('');
+			$scope.polasciFields.fields.push('');
 		  }
 	
-	/*$scope.refresh = function(){
-		stajalisteFactory.getAll()
-	          .success(function(data2){
-	        	  $scope.stajalista = data2;
-	          });
-	}*/
+	$scope.refresh = function(){
+        polazakFactory.getAll().then(function (data1) {
+        	$scope.polasci = data1.data;
+		});
+        stajalisteFactory.getAll().then(function (data2) {
+        	$scope.stajalista = data2.data;
+		});
+        linijaFactory.getAll().then(function (data3) {
+        	$scope.linije = data3.data;
+		});
+	}
 	
 	
 	$scope.addPolazak = function(polazak) {
@@ -174,21 +179,26 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
         $scope.linija.naziv;
 		$scope.linija.stajalista = [];
 		$scope.linija.polasci = [];
-        $scope.linija.tip;
+		$scope.linija.tip;
+		$scope.temp = {};
+		$scope.temp.stajalista = [];
+		$scope.temp.polasci = [];
 		
 		for(var i=0; i<$scope.stajalistaFields.fields.length; i++) {
-			if($scope.stajalistaFields.fields[i]!=="") {
-				$scope.linija.stajalista.push($scope.stajalistaFields.fields[i]);
+			if(!$scope.stajalistaFields.fields[i]!=="") {
+				$scope.temp.stajalista = angular.fromJson($scope.stajalistaFields.fields[i]);
+				$scope.linija.stajalista.push($scope.temp.stajalista);
 			}
 		}
 		for(var i=0; i<$scope.polasciFields.fields.length; i++) {
-			if($scope.polasciFields.fields[i]!=="") {
-				$scope.linija.polasci.push($scope.polasciFields.fields[i]);
+			if(!$scope.polasciFields.fields[i]!=="") {
+				$scope.temp.polasci = angular.fromJson($scope.polasciFields.fields[i]);
+				$scope.linija.polasci.push($scope.temp.polasci);
 			}
 		}
 		
 		$scope.addLinija($scope.linija);
 		//$location.path('/displayAllStajalista');
-		//$scope.refresh();
+		$scope.refresh();
 	};
 });

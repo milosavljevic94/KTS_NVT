@@ -4,7 +4,7 @@
 			<div>
 				<tr>
 					<td>Broj: </td>
-					<td><input type="text" id="broj" ng-model="linija.broj" pattern="[0-9]" required></td>
+					<td><input type="text" id="broj" ng-model="linija.broj" pattern="\d+" required></td>
 				</tr>
 				<tr>
 					<td>Naziv: </td>
@@ -13,19 +13,27 @@
 				<tr>
 					<td align="center">Stajalista:</td>
 					<td align="center">
-						<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model='opstiSimptomiFields.fields[$index]'>
-							<option ng-repeat="simptom in placeholderBolest.opstiSimptomi" value="{{simptom}}">{{simptom}}</option>
-						</select></br>
-							<!--<input ng-repeat="field in simptomiFields.fields track by $index" type='text' ng-model='simptomiFields.fields[$index]'></td>-->
-					<td><button type='button' ng-click="addOpstiSimptomiField()">Novi</button></td>
+						<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model="stajalistaFields.fields[$index]">
+							<option ng-repeat="stajaliste1 in stajalista" value="{{stajaliste1}}">{{stajaliste1.naziv}}</option>
+						</select>
+					</td>
+					<td><button type="button" ng-click="addStajalisteField()">+</button></td>
 				</tr>
-				<tr><td>Dan:</td><td>
-				<select id="dan" ng-model="polazak.dan" required>
-					<option value="Radni dan">Radni dan</option>
-					<option value="Subota">Subota</option>
-					<option value="Nedelja">Nedelja</option>
+				<tr>
+					<td align="center">Polasci:</td>
+					<td align="center">
+						<select style="float: left; clear: both;" ng-repeat="field in polasciFields.fields track by $index" ng-model="polasciFields.fields[$index]">
+							<option ng-repeat="polazak1 in polasci" value="{{polazak1}}">{{polazak1.vreme}}</option>
+						</select>
+					</td>
+					<td><button type="button" ng-click="addPolazakField()">+</button></td>
+				</tr>
+				<tr><td>Vozilo:</td><td>
+				<select id="tip" ng-model="linija.tip" required>
+					<option value="autobus">autobus</option>
+					<option value="tramvaj">tramvaj</option>
+					<option value="metro">metro</option>
 				</select></td></tr>
-				<tr><td>Vreme: </td><td><input type="text" id="vreme" ng-model="polazak.vreme" required></td></tr>
 				<tr><td></td><td><button ng-disabled="addLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinija()">Dodaj</button></td></tr>
 			</div>
 		</table>

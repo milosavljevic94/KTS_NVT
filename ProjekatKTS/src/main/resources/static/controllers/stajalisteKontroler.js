@@ -1,6 +1,6 @@
 app.controller('stajalisteKontroler', function($scope, stajalisteFactory, $http, $rootScope, $location, $window) {
 	
-	$scope.stajalista = [{id:32, naziv:"naziv1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"}];
+	//$scope.stajalista = [{id:32, naziv:"naziv1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"}];
 	
     function init() {
     	console.log('stajalisteKontroler.Init');
