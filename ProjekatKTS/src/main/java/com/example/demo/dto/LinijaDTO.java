@@ -24,8 +24,10 @@ public class LinijaDTO {
 		this.id = lin.getId();
 		this.broj = lin.getBroj();
 		this.naziv = lin.getNaziv();
-		for(Stajaliste staj : lin.getStajalista())
+		for(Stajaliste staj : lin.getStajalista()) {
+			//System.out.println(staj.toString());
 			this.stajalista.add(new StajalisteDTO(staj));
+		}
 		for(Polazak pol : lin.getPolasci())
 			this.polasci.add(new PolazakDTO(pol));
 		this.tip = lin.getTip();

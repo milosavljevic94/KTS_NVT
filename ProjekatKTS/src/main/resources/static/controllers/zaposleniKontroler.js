@@ -1,5 +1,11 @@
 app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, $http, $rootScope, $location, $window) {
 
+	$scope.polasciMock = [{id:32, dan:"subota", vreme:"15:45"},{id:33, dan:"subota", vreme:"14:45"},{id:34, dan:"radni dan", vreme:"14:45"}];
+	$scope.stajalistaMock = [{id:42, naziv:"stajaliste1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"},{id:43, naziv:"stajaliste2", lokacijaX:"25.2", lokacijaY:"38.2", adresa:"Cara Lazara"},
+		{id:44, naziv:"stajaliste3", lokacijaX:"23.2", lokacijaY:"42.2", adresa:"Gajeva"}];
+	$scope.linijeMock = [{id:52, broj:"1", naziv:"Zeleznicka - Centar", stajalista: $scope.stajalistaMock, polasci: $scope.polasciMock, tip: "autobus"}, {id:53, broj:"2", naziv:"Zeleznicka - Novo Naselje", stajalista: $scope.stajalistaMock, polasci: $scope.polasciMock, tip: "autobus"},
+		{id:54, broj:"3", naziv:"Zeleznicka - Klisa", stajalista: $scope.stajalistaMock, polasci: $scope.polasciMock, tip: "autobus"}];
+	
     function init() {
     	console.log('zaposleniKontroler.Init');
         polazakFactory.getAll().then(function (data1) {
@@ -200,5 +206,21 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		$scope.addLinija($scope.linija);
 		//$location.path('/displayAllStajalista');
 		$scope.refresh();
+	};
+	
+	$scope.submitLinijaDisplay = function() {
+		
+		$scope.selektovanaLinija;
+		$scope.selektovaniDan;
+
+		$scope.polasciZaPrikazTemp = [];
+		
+		
+		for(var i=0; i<angular.fromJson($scope.selektovanaLinija).polasci.length; i++) {
+			if(angular.fromJson($scope.selektovanaLinija).polasci[i].dan===$scope.selektovaniDan) {
+				$scope.polasciZaPrikazTemp.push(angular.fromJson($scope.selektovanaLinija).polasci[i]);
+			}
+		}
+		//$scope.refresh();
 	};
 });

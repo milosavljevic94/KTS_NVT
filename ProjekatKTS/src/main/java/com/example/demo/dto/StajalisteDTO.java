@@ -17,10 +17,15 @@ public class StajalisteDTO {
 
 	public StajalisteDTO (Stajaliste staj) {
 		this.id = staj.getId();
+		//System.out.println(this.id);
 		this.naziv = staj.getNaziv();
+		//System.out.println(this.naziv);
 		this.lokacijaX = staj.getLokacijaX();
+		//System.out.println(this.lokacijaX);
 		this.lokacijaY = staj.getLokacijaY();
+		//System.out.println(this.lokacijaY);
 		this.adresa = staj.getAdresa();
+		//System.out.println(this.adresa);
 	}
 
 	public Long getId() {
