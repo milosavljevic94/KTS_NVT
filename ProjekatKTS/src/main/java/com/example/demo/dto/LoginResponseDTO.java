@@ -24,7 +24,8 @@ public class LoginResponseDTO {
         this.token = kor.getLozinka();
         this.id = kor.getId();
         this.email = kor.getEmail();
-        this.tip = kor.getPrviKorisnikAuthority().getAuthority().getNaziv();
+        //this.tip = kor.getPrviKorisnikAuthority().getAuthority().getNaziv();
+        this.tip = "GRADJANIN";
     }
 
 	public String getToken() {

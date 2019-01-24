@@ -65,7 +65,7 @@ public class KorisnikKontroler {
         }
 	}
 	
-	@RequestMapping(value = "/registracija", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/registracija", method = RequestMethod.POST, consumes = "application/json", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> registracija(@RequestBody RegistracijaDTO regDTO)
     {
         LoginResponseDTO logRepDTO = this.korServis.registracija(regDTO);

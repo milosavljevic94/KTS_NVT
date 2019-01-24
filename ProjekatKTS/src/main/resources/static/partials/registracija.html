@@ -1,0 +1,16 @@
+<div ng-controller="registracijaKontroler">
+	<h2>Registracija</h2>
+	<form name="registracijaForma" action="/">
+		Ime:<br>
+  		<input type="text" name="ime" id="ime" ng-model="korisnik.ime" required><br>
+ 		Prezime:<br>
+  		<input type="text" name="prezime" id="prezime" ng-model="korisnik.prezime" required><br>
+  		Email:<br>
+  		<input type="email" name="email" id="email" ng-model="korisnik.email" required><br>
+  		Lozinka:<br>
+  		<input type="password" name="lozinka1" id="lozinka" ng-model="korisnik.lozinka" required><br>
+  		Ponovite lozinku:<br>
+  		<input type="password" name="lozinka2" required><br><br>
+  		<button ng-disabled="registracijaForma.$invalid" type="button" name="regButton" class='btn btn-default' ng-click="registracija(korisnik)">OK</button>
+	</form>
+</div>

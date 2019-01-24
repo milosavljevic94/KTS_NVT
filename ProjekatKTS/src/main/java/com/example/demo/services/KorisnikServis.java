@@ -66,7 +66,9 @@ public class KorisnikServis {
 		Authority authority = this.authRep.findByName(regDTO.getTip());
 		Korisnik kor = new Korisnik(regDTO.getIme(), regDTO.getPrezime(), regDTO.getEmail(), regDTO.getLozinka());
 		this.korRep.save(kor);
+		
 		KorisnikAuthority korAuth = new KorisnikAuthority();
+		korAuth.setKorisnik(kor);
 		korAuth.setAuthority(authority);
 		this.korAuthRep.save(korAuth);
 		
