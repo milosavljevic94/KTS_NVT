@@ -4,11 +4,19 @@ insert into authority(id, authority_naziv) values (3, 'gradjanin');
 insert into authority(id, authority_naziv) values (4, 'administrator');
 insert into authority(id, authority_naziv) values (5, 'zaposleni');
 
+-- sifre svih korisnika su slovo a
 
-insert into administratori(id, ime, prezime, email, lozinka) values(1,'admin','admin','admin@kts.com','admin');
+insert into administratori(id, ime, prezime, email, lozinka, tip) values(-3,'admin','admin','admin@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 3);
 
-insert into korisnik(id, ime, prezime, email, lozinka) values(1,'Petar','Petrovic','pera@kts.com','petar');
-insert into korisnik(id, ime, prezime, email, lozinka) values(2,'Nikola','Nikolic','nikola@kts.com','nikola');
+insert into zaposleni(id, ime, prezime, email, lozinka, tip) values(-4,'zaposleni','zaposleni','zaposleni@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 4);
+
+insert into korisnik(id, ime, prezime, email, lozinka, tip) values(-1,'Petar','Petrovic','pera@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 2);
+insert into korisnik(id, ime, prezime, email, lozinka, tip) values(-2,'Nikola','Nikolic','nikola@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 2);
+
+insert into korisnik_authority(id, authority_id, korisnik_id) values (-1, 4, -3);
+insert into korisnik_authority(id, authority_id, korisnik_id) values (-2, 5, -4);
+insert into korisnik_authority(id, authority_id, korisnik_id) values (-3, 3, -1);
+insert into korisnik_authority(id, authority_id, korisnik_id) values (-4, 3, -2);
 
 insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(1,'Bulevar Cara Lazara 10', 11.04,12.08,'Merkator');
 insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(2,'Bulevar Oslobodjenja 13', 14.04,18.08,'Futoska Pijaca');

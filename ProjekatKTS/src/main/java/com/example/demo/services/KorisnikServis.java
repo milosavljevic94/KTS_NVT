@@ -65,6 +65,7 @@ public class KorisnikServis {
 		//u bazi se nalaze predefinisani tipovi korisnika
 		Authority authority = this.authRep.findByName(regDTO.getTip());
 		Korisnik kor = new Korisnik(regDTO.getIme(), regDTO.getPrezime(), regDTO.getEmail(), regDTO.getLozinka());
+		kor.setTip(TipKorisnika.gradjanin);
 		this.korRep.save(kor);
 		
 		KorisnikAuthority korAuth = new KorisnikAuthority();
@@ -72,7 +73,10 @@ public class KorisnikServis {
 		korAuth.setAuthority(authority);
 		this.korAuthRep.save(korAuth);
 		
-		switch (regDTO.getTip()) {
+		kor.dodajKorisnikAuthority(korAuth);
+		this.korRep.save(kor);
+		
+		/*switch (regDTO.getTip()) {
 			case "ADMINISTRATOR":
 			{
 				Administrator admin = new Administrator(regDTO);
@@ -101,7 +105,7 @@ public class KorisnikServis {
 			}
 			default:
                 break;
-		}
+		}*/
 		return new LoginResponseDTO(kor);
     }
 	
