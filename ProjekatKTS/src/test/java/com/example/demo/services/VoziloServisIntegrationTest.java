@@ -46,13 +46,12 @@ public class VoziloServisIntegrationTest {
 	}
 	
 	//PITATI MINU OKO DODAVANJA U INTEGRACIONIM TESTOVIMA??
-	/*
+	
 	@Test
     @Transactional
     @Rollback(true) //it can be omitted because it is true by default
 	public void testAdd() {
-		Vozilo testVozilo = new VoziloDTO();
-		testVozilo.setId(NEW_DB_ID);
+		Vozilo testVozilo = new Vozilo();
 		testVozilo.setLinija(NEW_DB_LINIJA_ID);
 		testVozilo.setStajaliste(NEW_DB_STAJALISTE_ID);
 		testVozilo.setTip(TipVozila.autobus);
@@ -63,12 +62,14 @@ public class VoziloServisIntegrationTest {
 		List<Vozilo> vozila = voziloServis.findAll();
 		//assertThat(vozila).hasSize(dbSizeBefore + 1);
 		dbVozilo = vozila.get(vozila.size()-1);
-		assertEquals(dbVozilo.getId(),NEW_DB_ID );
+		assertEquals(dbVozilo.getId(),new Long(1L));
 		assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
 		assertEquals(dbVozilo.getLinija(),NEW_DB_LINIJA_ID);
 		
+
+		
 	}
-	*/
+	
 
 
 }
