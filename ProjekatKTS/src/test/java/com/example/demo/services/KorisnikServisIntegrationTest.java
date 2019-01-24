@@ -1,9 +1,11 @@
 package com.example.demo.services;
 
-import static com.example.demo.constants.VoziloConstants.DB_COUNT;
-import static com.example.demo.constants.VoziloConstants.NEW_DB_STAJALISTE_ID;
-import static com.example.demo.constants.VoziloConstants.NEW_DB_ID;
-import static com.example.demo.constants.VoziloConstants.NEW_DB_LINIJA_ID;
+import static com.example.demo.constants.KorisnikConstants.DB_COUNT;
+import static com.example.demo.constants.KorisnikConstants.DB_ID;
+import static com.example.demo.constants.KorisnikConstants.DB_USERNAME;
+
+
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -18,40 +20,62 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.demo.dto.KorisnikDTO;
+import com.example.demo.dto.LoginResponseDTO;
+import com.example.demo.dto.RegistracijaDTO;
+import com.example.demo.model.Korisnik;
 import com.example.demo.model.TipVozila;
 import com.example.demo.model.Vozilo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-public class VoziloServisIntegrationTest {
+public class KorisnikServisIntegrationTest {
 
 	@Autowired
-	private VoziloServis voziloServis;
+	private KorisnikServis korisnikServis;
 	
 	
 	@Test
-	public void testFind_All() {
-		List<Vozilo> vozila = voziloServis.findAll();
-		assertEquals(DB_COUNT, vozila.size());
+	public void testGetAll() {
+		List<KorisnikDTO> korisnici = korisnikServis.sviKorisnici();
+		assertEquals(DB_COUNT, korisnici.size());
+		//Vraca 3 iako postoje 2 korisnika, verovatno racuna + 1 adminstrator; 2+1=3
 	}
 	
 	@Test
-	public void testGetByID_found() {
-		Vozilo vozilo = voziloServis.getOne(1L);
-		//System.out.println(vozilo.toString());
-		
-		assertThat(vozilo).isNotNull();
-		assertEquals(new Long(1L), vozilo.getId());
-		
+	public void testGetByID() {
+		Korisnik korisnik = korisnikServis.getUserById(DB_ID);
+		assertThat(korisnik).isNotNull();
+		assertEquals(DB_ID, korisnik.getId());
 	}
 	
-	//PITATI MINU OKO DODAVANJA U INTEGRACIONIM TESTOVIMA??
+	@Test
+	public void testGetByUserName() {
+		Korisnik korisnik = korisnikServis.getUserByUsername(DB_USERNAME);
+		assertThat(korisnik).isNotNull();
+		assertEquals(DB_USERNAME, korisnik.getEmail());
+			
+	}
+	
+	//Pitati minu oko ovoga, nece da odradi dodavanje novog;
+	/*
+	@Test
+	public void registracijaKorisnika() {
+		RegistracijaDTO regDTO = new RegistracijaDTO("test@kts.com", "test", "test", "testName", "testSurname");
+		LoginResponseDTO logRespDTO = korisnikServis.registracija(regDTO);
+		Korisnik korisnik = korisnikServis.getUserByUsername("test@kts.com");
+		
+		assertEquals("test@kts.com", korisnik.getEmail());
+	}
+	*/
+	
+	
 	/*
 	@Test
     @Transactional
     @Rollback(true) //it can be omitted because it is true by default
 	public void testAdd() {
-		Vozilo testVozilo = new VoziloDTO();
+		Vozilo testVozilo = new Vozilo();
 		testVozilo.setId(NEW_DB_ID);
 		testVozilo.setLinija(NEW_DB_LINIJA_ID);
 		testVozilo.setStajaliste(NEW_DB_STAJALISTE_ID);
