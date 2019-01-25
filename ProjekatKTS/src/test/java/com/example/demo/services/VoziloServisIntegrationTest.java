@@ -60,7 +60,7 @@ public class VoziloServisIntegrationTest {
 		
 		assertThat(dbVozilo).isNotNull();
 		List<Vozilo> vozila = voziloServis.findAll();
-		//assertThat(vozila).hasSize(dbSizeBefore + 1);
+		assertThat(vozila).hasSize(dbSizeBefore + 1);
 		dbVozilo = vozila.get(vozila.size()-1);
 		assertEquals(dbVozilo.getId(),new Long(1L));
 		assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
