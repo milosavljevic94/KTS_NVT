@@ -1,6 +1,8 @@
 var app = angular.module('app',['ngRoute', 'ngMap']);
 
 app.config(function($routeProvider) {
+	$routeProvider.otherwise({redirectTo:'/'});
+	
 	$routeProvider.when('/',
 	{
 		templateUrl: 'partials/welcome.html'
@@ -15,8 +17,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/addLinija.html'
 	}).when('/registracija',
 	{
-		templateUrl: 'partials/registracija.html', 
-		
+		templateUrl: 'partials/registracija.html',
+	}).when('/prijava',
+	{
+		templateUrl: 'partials/prijava.html',
 	}).when('/cenovnik',
 	{
 		templateUrl: 'partials/displayCenovnik.html'
