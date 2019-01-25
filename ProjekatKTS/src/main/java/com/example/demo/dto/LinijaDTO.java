@@ -1,5 +1,6 @@
 package com.example.demo.dto;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.demo.model.Linija;
@@ -24,10 +25,12 @@ public class LinijaDTO {
 		this.id = lin.getId();
 		this.broj = lin.getBroj();
 		this.naziv = lin.getNaziv();
+		this.stajalista = new ArrayList<StajalisteDTO>();
 		for(Stajaliste staj : lin.getStajalista()) {
-			//System.out.println(staj.toString());
-			this.stajalista.add(new StajalisteDTO(staj));
+			StajalisteDTO stajDTO = new StajalisteDTO(staj);
+			this.stajalista.add(stajDTO);
 		}
+		this.polasci = new ArrayList<PolazakDTO>();
 		for(Polazak pol : lin.getPolasci())
 			this.polasci.add(new PolazakDTO(pol));
 		this.tip = lin.getTip();

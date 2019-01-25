@@ -20,12 +20,20 @@ import com.example.demo.model.Linija;
 import com.example.demo.model.Polazak;
 import com.example.demo.model.Stajaliste;
 import com.example.demo.services.LinijaServis;
+import com.example.demo.services.PolazakServis;
+import com.example.demo.services.StajalisteServis;
 
 @RestController
 @RequestMapping(value = "api/linija")
 public class LinijaKontroler {
 	@Autowired
 	LinijaServis linijaServis;
+	
+	@Autowired
+	PolazakServis polazakServis;
+	
+	@Autowired
+	StajalisteServis stajalisteServis;
 	
 	//vrati sve linije
 	@GetMapping("/all")
@@ -83,6 +91,20 @@ public class LinijaKontroler {
 			polasci1.add(pol);
 		}
 		linija.setPolasci(polasci1);
+		
+		/*List<Stajaliste> stajalista1 = new ArrayList<Stajaliste>();
+		for(StajalisteDTO stajDTO : linijaDTO.getStajalista()) {
+			stajalista1.add(stajalisteServis.getOne(stajDTO.getId()));
+		}
+		
+		linija.setStajalista(stajalista1);
+		
+		List<Polazak> polasci1 = new ArrayList<Polazak>();
+		for(PolazakDTO polDTO : linijaDTO.getPolasci()) {
+			polasci1.add(polazakServis.getOne(polDTO.getId()));
+		}
+		linija.setPolasci(polasci1);*/
+		
 		linija.setTip(linijaDTO.getTip());
 		
 		linija = linijaServis.save(linija);
