@@ -18,7 +18,7 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
     
 	init();
 
-	$scope.refresh = function(){
+	$scope.refresh = function() {
         polazakFactory.getAll().then(function (data1) {
         	$scope.polasci = data1.data;
 		});
@@ -28,6 +28,14 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
         linijaFactory.getAll().then(function (data3) {
         	$scope.linije = data3.data;
 		});
+	}
+	
+	$scope.login = function() {
+		$window.location.replace("http://localhost:8080/#!/prijava");
+	}
+	
+	$scope.registracija = function() {
+		$window.location.replace("http://localhost:8080/#!/registracija");
 	}
 
 	$scope.submitLinijaDisplay = function() {

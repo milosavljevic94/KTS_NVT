@@ -10,7 +10,7 @@
   		Lozinka:<br>
   		<input type="password" name="lozinka1" id="lozinka" ng-model="korisnik.lozinka" required><br>
   		Ponovite lozinku:<br>
-  		<input type="password" name="lozinka2" required><br><br>
-  		<button ng-disabled="registracijaForma.$invalid" type="button" name="regButton" class='btn btn-default' ng-click="registracija(korisnik)">OK</button>
+  		<input type="password" name="lozinka2" ng-model="lozinka2" required><br><br>
+  		<button ng-disabled="registracijaForma.$invalid || korisnik.lozinka != lozinka2" type="button" name="regButton" class='btn btn-default' ng-click="registracija(korisnik)">OK</button>
 	</form>
 </div>

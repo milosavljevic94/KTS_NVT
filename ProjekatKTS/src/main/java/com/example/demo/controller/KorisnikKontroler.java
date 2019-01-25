@@ -49,7 +49,7 @@ public class KorisnikKontroler {
         	UsernamePasswordAuthenticationToken token = 
         			new UsernamePasswordAuthenticationToken(
 					loginDTO.getEmail(), loginDTO.getLozinka());
-            Authentication authentication = authenticationManager.authenticate(token);            
+            Authentication authentication = authenticationManager.authenticate(token);
             SecurityContextHolder.getContext().setAuthentication(authentication);
 
             // Reload user details so we can generate token

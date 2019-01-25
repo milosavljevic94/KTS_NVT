@@ -2,6 +2,11 @@ app.controller('registracijaKontroler', function($scope, $http, $rootScope, $loc
 
 	$scope.registracija = function(korisnik) {
 		korisnik.tip = "gradjanin";
-		return $http.post('api/korisnik/registracija', korisnik);
+		var data = $http.post('api/korisnik/registracija', korisnik);
+		if (data !== null) {
+			$window.location.replace("http://localhost:8080/#!/");
+		} else {
+			console.log("Registracija nije uspela");
+		}
 	};
 });
