@@ -15,6 +15,10 @@ app.config(function($routeProvider) {
 		templateUrl: 'partials/addLinija.html'
 	}).when('/registracija',
 	{
-		templateUrl: 'partials/registracija.html'
+		templateUrl: 'partials/registracija.html', 
+		
+	}).when('/cenovnik',
+	{
+		templateUrl: 'partials/displayCenovnik.html'
 	})
 });

@@ -11,6 +11,9 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
         linijaFactory.getAll().then(function (data3) {
         	$scope.linije = data3.data;
 		});
+        
+      //Ovo simulira tip trenutnog korisnika, zamenice se kad budemo imali logovanje.
+		$scope.tipUlogovanogKorisnika = "penzioner";
     }
     
 	init();
