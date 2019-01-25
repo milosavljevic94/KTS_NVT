@@ -28,7 +28,7 @@ public class Linija implements Serializable {
 	@ManyToMany
 	List<Stajaliste> stajalista;
 	
-	@OneToMany
+	@ManyToMany
 	List<Polazak> polasci;
 	
 	@Enumerated(EnumType.STRING)

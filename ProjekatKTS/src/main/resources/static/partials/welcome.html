@@ -1,18 +1,18 @@
-<div  ng-controller="zaposleniKontroler">
+<div  ng-controller="indexKontroler">
 	<form name="displayLinijaForm" action="/">
 		<table border="1"  cellpadding="5">
 			<div>
 				<tr>
 					<td>
 						<select id="linija1" ng-model="selektovanaLinija">
-							<option ng-repeat="linija in linijeMock" value="{{linija}}">{{linija.naziv}}</option>
+							<option ng-repeat="linija in linije" value="{{linija}}">{{linija.naziv}}</option>
 						</select>
 					</td>
 					<td>
 						<select id="dan" ng-model="selektovaniDan">
-							<option value="radni dan">radni dan</option>
-							<option value="subota">subota</option>
-							<option value="nedelja">nedelja</option>
+							<option value="Radni dan">radni dan</option>
+							<option value="Subota">subota</option>
+							<option value="Nedelja">nedelja</option>
 						</select>
 					</td>
 					<td>

@@ -23,7 +23,7 @@
 					<td align="center">Polasci:</td>
 					<td align="center">
 						<select style="float: left; clear: both;" ng-repeat="field in polasciFields.fields track by $index" ng-model="polasciFields.fields[$index]">
-							<option ng-repeat="polazak1 in polasci" value="{{polazak1}}">{{polazak1.vreme}}</option>
+							<option ng-repeat="polazak1 in polasci" value="{{polazak1}}">{{polazak1.vreme + " " + polazak1.dan}}</option>
 						</select>
 					</td>
 					<td><button type="button" ng-click="addPolazakField()">+</button></td>
