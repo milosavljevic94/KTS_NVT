@@ -24,52 +24,52 @@ import com.example.demo.model.Vozilo;
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class VoziloServisIntegrationTest {
-
-	@Autowired
-	private VoziloServis voziloServis;
-	
-	
-	@Test
-	public void testFind_All() {
-		List<Vozilo> vozila = voziloServis.findAll();
-		assertEquals(DB_COUNT, vozila.size());
-	}
-	
-	@Test
-	public void testGetByID_found() {
-		Vozilo vozilo = voziloServis.getOne(1L);
-		//System.out.println(vozilo.toString());
-		
-		assertThat(vozilo).isNotNull();
-		assertEquals(new Long(1L), vozilo.getId());
-		
-	}
-	
-	//PITATI MINU OKO DODAVANJA U INTEGRACIONIM TESTOVIMA??
-	
-	@Test
+ 
+    @Autowired
+    private VoziloServis voziloServis;
+   
+   
+    @Test
+    public void testFind_All() {
+        List<Vozilo> vozila = voziloServis.findAll();
+        assertEquals(DB_COUNT, vozila.size());
+    }
+   
+    @Test
+    public void testGetByID_found() {
+        Vozilo vozilo = voziloServis.getOne(-1L);
+        //System.out.println(vozilo.toString());
+       
+        assertThat(vozilo).isNotNull();
+        assertEquals(new Long(-1L), vozilo.getId());
+       
+    }
+   
+ 
+   
+    @Test
     @Transactional
     @Rollback(true) //it can be omitted because it is true by default
-	public void testAdd() {
-		Vozilo testVozilo = new Vozilo();
-		testVozilo.setLinija(NEW_DB_LINIJA_ID);
-		testVozilo.setStajaliste(NEW_DB_STAJALISTE_ID);
-		testVozilo.setTip(TipVozila.autobus);
-		int dbSizeBefore = voziloServis.findAll().size();
-		Vozilo dbVozilo = voziloServis.save(testVozilo);
-		
-		assertThat(dbVozilo).isNotNull();
-		List<Vozilo> vozila = voziloServis.findAll();
-		assertThat(vozila).hasSize(dbSizeBefore + 1);
-		dbVozilo = vozila.get(vozila.size()-1);
-		assertEquals(dbVozilo.getId(),new Long(1L));
-		assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
-		assertEquals(dbVozilo.getLinija(),NEW_DB_LINIJA_ID);
-		
-
-		
-	}
-	
-
-
+    public void testAdd() {
+        Vozilo testVozilo = new Vozilo();
+        testVozilo.setLinija(NEW_DB_LINIJA_ID);
+        testVozilo.setStajaliste(NEW_DB_STAJALISTE_ID);
+        testVozilo.setTip(TipVozila.autobus);
+        int dbSizeBefore = voziloServis.findAll().size();
+        Vozilo dbVozilo = voziloServis.save(testVozilo);
+       
+        assertThat(dbVozilo).isNotNull();
+        List<Vozilo> vozila = voziloServis.findAll();
+        assertThat(vozila).hasSize(dbSizeBefore + 1);
+        dbVozilo = vozila.get(vozila.size()-1);
+        assertEquals(dbVozilo.getId(),new Long(1L));
+        assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
+        assertEquals(dbVozilo.getLinija(),NEW_DB_LINIJA_ID);
+       
+ 
+       
+    }
+   
+ 
+ 
 }
