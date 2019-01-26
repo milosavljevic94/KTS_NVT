@@ -1,0 +1,17 @@
+<div  ng-controller="zaposleniKontroler">
+		<form name="korisnikDetailsForm" action="/">
+			<table border="1" cellpadding="5">
+				<tr><td>Ime: </td><td>{{detailViewKorisnik.ime}}</td></tr>
+				<tr><td>Prezime: </td><td>{{detailViewKorisnik.prezime}}</td></tr>
+				<tr><td>Email: </td><td>{{detailViewKorisnik.email}}</td></tr>
+				<tr><td>Tip korisnika: </td><td>
+					<select id="dan"ng-model="detailViewKorisnik.tip" required>
+						<option value="gradjanin">gradjanin</option>
+						<option value="ucenik">ucenik</option>
+						<option value="penzioner">penzioner</option>
+					</select></td></tr>
+				<tr><td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button>
+				<td align="center"><button type="button" class='btn btn-default' ng-click="updateTipKorisnika(detailViewKorisnik)">Azuriraj</button></td></tr>
+			</table>
+		</form>
+</div>

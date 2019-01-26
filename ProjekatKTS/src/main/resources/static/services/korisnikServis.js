@@ -21,6 +21,10 @@ app.factory('korisnikFactory', function($http) {
 		return $http.get('/api/korisnik/'+emailKorisnika);
 	};
 	
+	factory.updateTipKorisnika = function(korisnikDTO) {
+		return $http.put('/api/korisnik/updateTipKorisnika', korisnikDTO);
+	};
+	
 	return factory;
 	
 });

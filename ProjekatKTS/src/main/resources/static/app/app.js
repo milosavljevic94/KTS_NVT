@@ -24,5 +24,11 @@ app.config(function($routeProvider) {
 	}).when('/cenovnik',
 	{
 		templateUrl: 'partials/displayCenovnik.html'
+	}).when('/korisnici',
+	{
+		templateUrl: 'partials/displayKorisnici.html'
+	}).when('/korisnikDetails',
+	{
+		templateUrl: 'partials/korisnikDetails.html'
 	})
 });

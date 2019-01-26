@@ -99,5 +99,13 @@ public class KorisnikKontroler {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
 	}
+	
+	@RequestMapping(value="/updateTipKorisnika", method=RequestMethod.PUT)
+	public ResponseEntity<KorisnikDTO> updateTipKorisnika(@RequestBody KorisnikDTO kDTO) {
+		Korisnik kor = korServis.updateTipKorisnika(kDTO);
+		if (kor == null)
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
+	}
 
 }

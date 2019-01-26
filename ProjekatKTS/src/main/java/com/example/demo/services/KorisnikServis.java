@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -112,6 +114,15 @@ public class KorisnikServis {
 	public Korisnik promeniLozinku(LoginRequestDTO logRegDTO) {
 		Korisnik kor = korRep.findByUsername(logRegDTO.getEmail());
 		kor.setLozinka(logRegDTO.getLozinka());
+        return kor;
+    }
+	
+	public Korisnik updateTipKorisnika(KorisnikDTO kDTO) {
+		Korisnik kor = korRep.findByUsername(kDTO.getEmail());
+		kor.setTip(kDTO.getTip());
+		kor.getPrviKorisnikAuthority().setAuthority(authRep.findByName(kDTO.getTip().toString()));
+		//kor.setKorisnikAuthorities(korisnikAuthorities);
+		korRep.save(kor);
         return kor;
     }
 	

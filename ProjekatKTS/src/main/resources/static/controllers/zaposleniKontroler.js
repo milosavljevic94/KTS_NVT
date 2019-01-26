@@ -1,4 +1,4 @@
-app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, $http, $rootScope, $location, $window) {
+app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, korisnikFactory, $http, $rootScope, $location, $window) {
 
 	/*$scope.polasciMock = [{id:32, dan:"Subota", vreme:"15:45"},{id:33, dan:"Subota", vreme:"14:45"},{id:34, dan:"Radni dan", vreme:"14:45"}];
 	$scope.stajalistaMock = [{id:42, naziv:"stajaliste1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"},{id:43, naziv:"stajaliste2", lokacijaX:"25.2", lokacijaY:"38.2", adresa:"Cara Lazara"},
@@ -17,6 +17,9 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
         linijaFactory.getAll().then(function (data3) {
         	$scope.linije = data3.data;
 		});
+        korisnikFactory.sviKorisnici().then(function (data4) {
+        	$scope.korisnici = data4.data;
+        });
     }
     
 	init();
@@ -157,6 +160,21 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		//$scope.refresh();
 	};
 	
+	$scope.updateTipKorisnika = function(korisnik) {
+		korisnikFactory.updateTipKorisnika(korisnik).then(function(data) {
+			//$scope.refresh();
+			//toast("Polazak azuriran.");
+		}).catch(function (response) {
+			//$notify.error(response.msg);
+			//toast("Greska pri azuriranju polaska.");
+		});	
+	};
+	
+	$scope.back = function() {
+		//$location.path('/displayKorisnici');
+		$window.history.back();
+	};
+	
 	$scope.submitPolazak = function() {
 		//$rootScope je vidljivo globalno
 		$scope.polazak.dan;
@@ -223,4 +241,12 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		}
 		//$scope.refresh();
 	};
+	
+	$scope.korisnikDetails = function(korisnik) {
+		
+		$rootScope.detailViewKorisnik = korisnik;
+		$location.path('/korisnikDetails');
+	}
+	
+	
 });
