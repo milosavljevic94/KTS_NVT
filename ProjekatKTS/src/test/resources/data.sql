@@ -26,8 +26,8 @@ insert into linija(id, broj, naziv, tip) values(-1,1,'Centar-Telep','autobus');
 insert into linija(id, broj, naziv, tip) values(-2,4,'Centar-Bulevar','autobus');
 insert into linija(id, broj, naziv, tip) values(-3,13,'BulevarEvrope-Centar','tramvaj');
 
-insert into polazak(id, dan, vreme) values(-1, "Ponedeljak", "11:45");
-insert into polazak(id, dan, vreme) values(-2, "Cetvrtak", "13:50");
+insert into polazak(id, dan, vreme) values(-1, "Radni dan", "11:45");
+insert into polazak(id, dan, vreme) values(-2, "Nedelja", "13:50");
 insert into polazak(id, dan, vreme) values(-3, "Subota", "16:45");
 
 insert into linija_polasci(linija_id, polasci_id) values(-1,-1);

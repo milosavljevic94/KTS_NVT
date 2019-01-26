@@ -13,10 +13,11 @@
 		<header>
     		<h1>Gradski Prevoz</h1>
     	</header>
-    	
-    	<h2 id="korisnikStatus" style="color:green" ng-show="korisnik.tip">
-    		Prijavljeni ste kao <span ng-bind="korisnik.tip"></span>.
-    	</h2>
+    	<div ng-controller="prijavaKontroler">
+	    	<h2 id="korisnikStatus" style="color:green" ng-show="tipKorisnika">
+	    		Prijavljeni ste kao <span ng-bind="tipKorisnika"></span>.
+	    	</h2>
+    	</div>
     	
 		<div ng-view></div>
 
