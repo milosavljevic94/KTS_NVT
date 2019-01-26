@@ -3,6 +3,7 @@ package com.example.demo.services;
 import static com.example.demo.constants.StajalisteConstants.DB_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
 
@@ -11,11 +12,14 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Stajaliste;
+import com.example.demo.model.TipVozila;
+import com.example.demo.model.Vozilo;
 
 
 @RunWith(SpringRunner.class)
@@ -24,7 +28,6 @@ public class StajalisteServisIntegrationTest {
  
     @Autowired
     private StajalisteServis stajalisteServis;
-   
    
     @Test
     public void testGet_All() {
@@ -39,7 +42,6 @@ public class StajalisteServisIntegrationTest {
        
         assertThat(stajaliste).isNotNull();
         assertEquals(new Long(-1L), stajaliste.getId());
-       
     }
    
     @Test
@@ -62,13 +64,45 @@ public class StajalisteServisIntegrationTest {
         assertEquals("TestStajaliste",dbStajaliste.getNaziv());
         assertEquals(new Double(10.10), dbStajaliste.getLokacijaX());
         assertEquals(new Double(11.11), dbStajaliste.getLokacijaY());
-        assertEquals("Temerinska", dbStajaliste.getAdresa());
-       
- 
-       
+        assertEquals("Temerinska", dbStajaliste.getAdresa());       
     }
-   
- 
-   
- 
+    ///////////////////////////
+	@Test 
+	public void testFindOne() {
+		Stajaliste dbStajaliste = stajalisteServis.findOne(-1L);
+		assertThat(dbStajaliste).isNotNull();		
+		assertThat(dbStajaliste.getId()).isEqualTo(-1L);
+		assertEquals(dbStajaliste.getNaziv(), "Merkator");        
+	}
+	
+	@Test 
+	public void testFindOneNotExist() {
+		Stajaliste dbStajaliste = stajalisteServis.findOne(-123L);
+		assertThat(dbStajaliste).isNull();   
+	}
+	
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testRemove() {
+		int dbSizeBeforeRemove = stajalisteServis.getAll().size();
+		stajalisteServis.delete(-1L);;
+		
+		List<Stajaliste> stajalista = stajalisteServis.getAll();
+		assertThat(stajalista).hasSize(dbSizeBeforeRemove - 1);
+		
+		Stajaliste dbStajaliste = stajalisteServis.findOne(-1L);
+		assertThat(dbStajaliste).isNull();
+	}
+	
+	@Test(expected = EmptyResultDataAccessException.class)
+	@Transactional
+	@Rollback(true)
+	public void testRemoveNotExist() {
+		int dbSizeBeforeRemove = stajalisteServis.getAll().size();
+		stajalisteServis.delete(-123L);
+		
+		List<Stajaliste> stajalista = stajalisteServis.getAll();
+		assertNotEquals(stajalista.size(), dbSizeBeforeRemove-1);
+	}
 }

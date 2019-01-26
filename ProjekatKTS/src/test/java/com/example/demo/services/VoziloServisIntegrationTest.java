@@ -1,11 +1,11 @@
 package com.example.demo.services;
 
 import static com.example.demo.constants.VoziloConstants.DB_COUNT;
-import static com.example.demo.constants.VoziloConstants.NEW_DB_STAJALISTE_ID;
-import static com.example.demo.constants.VoziloConstants.NEW_DB_ID;
 import static com.example.demo.constants.VoziloConstants.NEW_DB_LINIJA_ID;
+import static com.example.demo.constants.VoziloConstants.NEW_DB_STAJALISTE_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
 
@@ -14,6 +14,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -27,8 +29,7 @@ public class VoziloServisIntegrationTest {
  
     @Autowired
     private VoziloServis voziloServis;
-   
-   
+     
     @Test
     public void testFind_All() {
         List<Vozilo> vozila = voziloServis.findAll();
@@ -42,11 +43,8 @@ public class VoziloServisIntegrationTest {
        
         assertThat(vozilo).isNotNull();
         assertEquals(new Long(-1L), vozilo.getId());
-       
     }
-   
- 
-   
+    
     @Test
     @Transactional
     @Rollback(true) //it can be omitted because it is true by default
@@ -65,11 +63,46 @@ public class VoziloServisIntegrationTest {
         assertEquals(dbVozilo.getId(),new Long(1L));
         assertEquals(dbVozilo.getStajaliste(),NEW_DB_STAJALISTE_ID);
         assertEquals(dbVozilo.getLinija(),NEW_DB_LINIJA_ID);
-       
- 
-       
     }
-   
- 
- 
+    
+    ///////////////////////////////////////////////////////////////////////
+	@Test 
+	public void testFindOne() {
+		Vozilo dbVozilo = voziloServis.findOne(-1L);
+		assertThat(dbVozilo).isNotNull();
+		assertThat(dbVozilo.getId()).isEqualTo(-1L);
+		assertEquals(dbVozilo.getTip(), TipVozila.autobus);      
+	}
+	
+	@Test 
+	public void testFindOneNotExist() {
+		Vozilo dbVozilo = voziloServis.findOne(-123L);
+		assertThat(dbVozilo).isNull();    
+	}
+
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testRemove() {
+		int dbSizeBeforeRemove = voziloServis.findAll().size();
+		voziloServis.delete(-1L);;
+		
+		List<Vozilo> vozila = voziloServis.findAll();
+		assertThat(vozila).hasSize(dbSizeBeforeRemove - 1);
+		
+		Vozilo dbVozilo = voziloServis.findOne(-1L);
+		assertThat(dbVozilo).isNull();
+	}
+	
+	@Test(expected = EmptyResultDataAccessException.class)
+	@Transactional
+	@Rollback(true)
+	public void testRemoveNotExist() {
+		int dbSizeBeforeRemove = voziloServis.findAll().size();
+		voziloServis.delete(-123L);
+		
+		List<Vozilo> vozila = voziloServis.findAll();		
+		assertNotEquals(vozila.size(), dbSizeBeforeRemove-1);
+	}
+	
 }

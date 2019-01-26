@@ -2,19 +2,21 @@ package com.example.demo.services;
  
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
- 
+import static org.junit.Assert.assertNotEquals;
+
 import java.util.Date;
 import java.util.List;
- 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
- 
+
 import com.example.demo.model.Karta;
 import com.example.demo.model.TipKarte;
  
@@ -22,10 +24,8 @@ import com.example.demo.model.TipKarte;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class KartaServisIntegrationTest {
    
-   
     @Autowired
     private KartaServis kartaServis;
-   
    
     @Test
     public void testFind_All() {
@@ -36,11 +36,8 @@ public class KartaServisIntegrationTest {
     @Test
     public void testGetByID_found() {
         Karta karta = kartaServis.getOne(-1L);
-        //System.out.println(linija.toString());
-       
         assertThat(karta).isNotNull();
         assertEquals(new Long(-1L), karta.getId());
-       
     }
    
     @SuppressWarnings("deprecation")
@@ -69,7 +66,46 @@ public class KartaServisIntegrationTest {
         assertEquals(new Date(2020, 2, 1), dbKarta.getVaziDo());
         assertEquals(true, dbKarta.isAktivirana());
         assertEquals(new Long(1L), dbKarta.getVlasnik());
+    }
+   
+    //////////////////////////////////
+   
+    @Test
+    public void testFindOne() {
+        Karta testKarta = kartaServis.findOne(-1L);
+        assertThat(testKarta).isNotNull();
+        assertThat(testKarta.getId()).isEqualTo(-1L); 
+    }
+   
+    @Test
+    public void testFindOneNotExist() {
+        Karta testKarta = kartaServis.findOne(-123L);
+        assertThat(testKarta).isNull();
+    }
+   
+    @Test
+    @Transactional
+    @Rollback(true)
+    public void testRemove() {
+        int dbSizeBeforeRemove = kartaServis.findAll().size();
+        kartaServis.delete(-1L);;
        
+        List<Karta> karte = kartaServis.findAll();
+        assertThat(karte).hasSize(dbSizeBeforeRemove - 1);
+       
+        Karta dbKarta = kartaServis.findOne(-1L);
+        assertThat(dbKarta).isNull();
+    }
+   
+    @Test(expected = EmptyResultDataAccessException.class)
+    @Transactional
+    @Rollback(true)
+    public void testRemoveNotExist() {
+        int dbSizeBeforeRemove = kartaServis.findAll().size();
+        kartaServis.delete(-123L);;
+       
+        List<Karta> karte = kartaServis.findAll();
+        assertNotEquals(karte.size(), dbSizeBeforeRemove-1);
     }
  
 }

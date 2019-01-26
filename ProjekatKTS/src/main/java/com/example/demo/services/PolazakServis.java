@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Polazak;
+import com.example.demo.model.Vozilo;
 import com.example.demo.repositories.PolazakRepozitorijum;
 
 @Service
@@ -16,6 +17,10 @@ public class PolazakServis {
 
 	public List<Polazak> findAll() {
 		return polazakRepo.findAll();	
+	}
+	
+	public Polazak findOne(Long id) {
+		return polazakRepo.findById(id).orElse(null);
 	}
 
 	public Polazak getOne(Long id) {

@@ -3,6 +3,7 @@ package com.example.demo.services;
 import static com.example.demo.constants.PolazakConstants.DB_COUNT;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.List;
 
@@ -11,11 +12,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.model.Polazak;
+import com.example.demo.model.Stajaliste;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -23,8 +26,7 @@ public class PolazakServisIntegrationTest {
  
     @Autowired
     private PolazakServis polazakServis;
-   
-   
+    
     @Test
     public void testFind_All() {
         List<Polazak> polasci = polazakServis.findAll();
@@ -34,11 +36,8 @@ public class PolazakServisIntegrationTest {
     @Test
     public void testGetByID_found() {
         Polazak polazak = polazakServis.getOne(-1L);
-        //System.out.println(vozilo.toString());
-       
         assertThat(polazak).isNotNull();
         assertEquals(new Long(-1L), polazak.getId());
-       
     }
    
     @Test
@@ -60,8 +59,45 @@ public class PolazakServisIntegrationTest {
         assertEquals("11:24", dbPolazak.getVreme());
    
     }
-   
- 
-   
+    
+    ///////////////////////////
+    @Test 
+	public void testFindOne() {
+    	Polazak testPolazak = polazakServis.findOne(-1L);
+		assertThat(testPolazak).isNotNull();	
+		assertThat(testPolazak.getId()).isEqualTo(-1L);
+		assertEquals(testPolazak.getDan(), "Ponedeljak");  
+	}
+	
+	@Test 
+	public void testFindOneNotExist() {
+		Polazak dbTestPolazak = polazakServis.findOne(-123L);
+		assertThat(dbTestPolazak).isNull();
+	}
+
+	@Test
+	@Transactional
+	@Rollback(true)
+	public void testRemove() {
+		int dbSizeBeforeRemove = polazakServis.findAll().size();
+		polazakServis.delete(-1L);;
+		
+		List<Polazak> polasci = polazakServis.findAll();
+		assertThat(polasci).hasSize(dbSizeBeforeRemove - 1);
+		
+		Polazak dbPolazak = polazakServis.findOne(-1L);
+		assertThat(dbPolazak).isNull();
+	}
+	
+	@Test(expected = EmptyResultDataAccessException.class)
+	@Transactional
+	@Rollback(true)
+	public void testRemoveNotExist() {
+		int dbSizeBeforeRemove = polazakServis.findAll().size();
+		polazakServis.delete(-123L);
+		
+		List<Polazak> polasci = polazakServis.findAll();
+		assertNotEquals(polasci.size(), dbSizeBeforeRemove-1);
+	}
  
 }

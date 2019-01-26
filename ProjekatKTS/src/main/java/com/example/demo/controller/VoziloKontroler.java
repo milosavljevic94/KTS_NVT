@@ -106,7 +106,7 @@ public class VoziloKontroler {
 		if (vozilo == null) {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
-			voziloServis.delete(vozilo);
+			voziloServis.delete(vozilo.getId());
 			return new ResponseEntity<Void>(HttpStatus.OK);
 	}
 
