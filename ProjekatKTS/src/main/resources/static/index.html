@@ -13,6 +13,11 @@
 		<header>
     		<h1>Gradski Prevoz</h1>
     	</header>
+    	
+    	<h2 id="korisnikStatus" style="color:green" ng-show="korisnik.tip">
+    		Prijavljeni ste kao <span ng-bind="korisnik.tip"></span>.
+    	</h2>
+    	
 		<div ng-view></div>
 
 		<!--<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model="stajalistaFields.fields[$index]">

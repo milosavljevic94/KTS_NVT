@@ -12,8 +12,12 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
         	$scope.linije = data3.data;
 		});
         
-      //Ovo simulira tip trenutnog korisnika, zamenice se kad budemo imali logovanje.
-		$scope.tipUlogovanogKorisnika = "penzioner";
+        if ($rootScope.korisnik == undefined)
+        	$scope.tipUlogovanogKorisnika = "gradjanin";
+        else {
+        	$scope.tipUlogovanogKorisnika = $rootScope.korisnik.tip;
+        	console.log($scope.tipUlogovanogKorisnika);
+        }
     }
     
 	init();
@@ -31,11 +35,17 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 	}
 	
 	$scope.login = function() {
-		$window.location.replace("http://localhost:8080/#!/prijava");
+		$window.location.assign("http://localhost:8080/#!/prijava");
 	}
 	
 	$scope.registracija = function() {
-		$window.location.replace("http://localhost:8080/#!/registracija");
+		$window.location.assign("http://localhost:8080/#!/registracija");
+	}
+	
+	$scope.odjava = function() {
+		$rootScope.korisnik = null;
+		document.getElementById("korisnikStatus").innerHTML = "";
+		$window.location.assign("http://localhost:8080/#!");
 	}
 
 	$scope.submitLinijaDisplay = function() {

@@ -1,10 +1,13 @@
 <div  ng-controller="indexKontroler">
 
 	<div style="float: left; width: 50%;">
-		<button style="width:110px;height:30px;" type="button" class='btn btn-default' ng-click="login()">Prijava</button>
+		<button style="width:110px;height:30px;" type="button" class='btn btn-default' ng-hide="korisnik.tip" ng-click="login()">Prijava</button>
 	</div>
     <div style="float: left; width: 50%;">
-    	<button style="width:110px;height:30px;" type="button" class='btn btn-default' ng-click="registracija()">Registracija</button>
+    	<button style="width:110px;height:30px;" type="button" class='btn btn-default' ng-hide="korisnik.tip" ng-click="registracija()">Registracija</button>
+    </div>
+    <div style="float: left; width: 50%;">
+    	<button style="width:110px;height:30px;" type="button" class='btn btn-default' ng-show="korisnik.tip" ng-click="odjava()">Odjava</button>
     </div>
     
     <br><br>
