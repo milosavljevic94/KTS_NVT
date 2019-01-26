@@ -16,6 +16,10 @@ public class VoziloServis {
 	public List<Vozilo> findAll() {
 		return voziloRepo.findAll();	
 	}
+	
+	public Vozilo findOne(Long id) {
+		return voziloRepo.findById(id).orElse(null);
+	}
 
 	public Vozilo getOne(Long id) {
 		return voziloRepo.getOne(id);
@@ -25,8 +29,8 @@ public class VoziloServis {
 		return voziloRepo.save(vozilo);
 	}
 
-	public void delete(Vozilo vozilo) {
-		voziloRepo.delete(vozilo);	
+	public void delete(Long id) {
+		voziloRepo.deleteById(id);	
 	}
 		
 		

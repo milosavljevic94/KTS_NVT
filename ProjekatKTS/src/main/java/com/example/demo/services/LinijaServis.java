@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Linija;
+import com.example.demo.model.Vozilo;
 import com.example.demo.repositories.LinijaRepozitorijum;
 
 @Service
@@ -15,6 +16,10 @@ public class LinijaServis {
 
 	public List<Linija> findAll() {
 		return linijaRepo.findAll();	
+	}
+	
+	public Linija findOne(Long id) {
+		return linijaRepo.findById(id).orElse(null);
 	}
 
 	public Linija getOne(Long broj) {
@@ -29,6 +34,8 @@ public class LinijaServis {
 		linijaRepo.deleteById(id);
 		//linijaRepo.delete(linija);	
 	}
+
+	
 		
 		
 }

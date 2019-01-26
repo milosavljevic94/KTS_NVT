@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.model.Karta;
+import com.example.demo.model.Vozilo;
 import com.example.demo.repositories.KartaRepozitorijum;
 
 @Service
@@ -16,6 +17,10 @@ public class KartaServis {
 
 	public List<Karta> findAll() {
 		return kartaRepo.findAll();	
+	}
+	
+	public Karta findOne(Long id) {
+		return kartaRepo.findById(id).orElse(null);
 	}
 
 	public Karta getOne(Long id) {

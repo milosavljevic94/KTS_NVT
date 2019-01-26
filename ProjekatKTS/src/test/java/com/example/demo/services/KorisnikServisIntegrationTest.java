@@ -3,9 +3,6 @@ package com.example.demo.services;
 import static com.example.demo.constants.KorisnikConstants.DB_COUNT;
 import static com.example.demo.constants.KorisnikConstants.DB_ID;
 import static com.example.demo.constants.KorisnikConstants.DB_USERNAME;
-
-
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
 
@@ -16,16 +13,10 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.dto.KorisnikDTO;
-import com.example.demo.dto.LoginResponseDTO;
-import com.example.demo.dto.RegistracijaDTO;
 import com.example.demo.model.Korisnik;
-import com.example.demo.model.TipVozila;
-import com.example.demo.model.Vozilo;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
@@ -33,7 +24,6 @@ public class KorisnikServisIntegrationTest {
 
 	@Autowired
 	private KorisnikServis korisnikServis;
-	
 	
 	@Test
 	public void testGetAll() {
@@ -57,7 +47,7 @@ public class KorisnikServisIntegrationTest {
 			
 	}
 	
-	//Pitati minu oko ovoga, nece da odradi dodavanje novog;
+	//Pitati Minu oko ovoga, nece da odradi dodavanje novog;
 	/*
 	@Test
 	public void registracijaKorisnika() {
@@ -68,7 +58,6 @@ public class KorisnikServisIntegrationTest {
 		assertEquals("test@kts.com", korisnik.getEmail());
 	}
 	*/
-	
 	
 	/*
 	@Test
@@ -93,6 +82,5 @@ public class KorisnikServisIntegrationTest {
 		
 	}
 	*/
-
 
 }
