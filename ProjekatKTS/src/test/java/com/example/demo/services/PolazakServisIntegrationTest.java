@@ -45,7 +45,7 @@ public class PolazakServisIntegrationTest {
     @Rollback(true) //it can be omitted because it is true by default
     public void testAdd() {
         Polazak testPolazak = new Polazak();
-        testPolazak.setDan("Utorak");
+        testPolazak.setDan("Radni dan");
         testPolazak.setVreme("11:24");
         int dbSizeBefore = polazakServis.findAll().size();
         Polazak dbPolazak = polazakServis.save(testPolazak);
@@ -55,7 +55,7 @@ public class PolazakServisIntegrationTest {
         assertThat(polasci).hasSize(dbSizeBefore + 1);
         dbPolazak = polasci.get(polasci.size()-1);
         assertEquals(new Long(1L), dbPolazak.getId());
-        assertEquals("Utorak",dbPolazak.getDan());
+        assertEquals("Radni dan",dbPolazak.getDan());
         assertEquals("11:24", dbPolazak.getVreme());
    
     }
@@ -66,7 +66,7 @@ public class PolazakServisIntegrationTest {
     	Polazak testPolazak = polazakServis.findOne(-1L);
 		assertThat(testPolazak).isNotNull();	
 		assertThat(testPolazak.getId()).isEqualTo(-1L);
-		assertEquals(testPolazak.getDan(), "Ponedeljak");  
+		assertEquals(testPolazak.getDan(), "Radni dan");  
 	}
 	
 	@Test 
@@ -99,5 +99,22 @@ public class PolazakServisIntegrationTest {
 		List<Polazak> polasci = polazakServis.findAll();
 		assertNotEquals(polasci.size(), dbSizeBeforeRemove-1);
 	}
+	
+	@Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+    public void testUpdate() {
+    	Polazak polazak1 = polazakServis.getOne(-2L);
+        polazak1.setDan("TestDan");
+        polazak1.setVreme("11:11");
+        
+        Polazak polazak2 = polazakServis.save(polazak1);
+       
+        assertThat(polazak2).isNotNull();
+        Polazak polazakUpdate = polazakServis.getOne(-2L);
+       
+        assertEquals("TestDan",polazakUpdate.getDan());
+        assertEquals("11:11",polazakUpdate.getVreme());
+    }
  
 }

@@ -105,4 +105,21 @@ public class StajalisteServisIntegrationTest {
 		List<Stajaliste> stajalista = stajalisteServis.getAll();
 		assertNotEquals(stajalista.size(), dbSizeBeforeRemove-1);
 	}
+	
+	@Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+    public void testUpdate() {
+    	Stajaliste stajaliste1 = stajalisteServis.getOne(-2L);
+        stajaliste1.setAdresa("TestAdresa");
+        stajaliste1.setNaziv("TestNaziv");
+        
+        Stajaliste stajaliste2 = stajalisteServis.save(stajaliste1);
+       
+        assertThat(stajaliste2).isNotNull();
+        Stajaliste stajalisteUpdate = stajalisteServis.getOne(-2L);
+       
+        assertEquals("TestAdresa",stajalisteUpdate.getAdresa());
+        assertEquals("TestNaziv",stajalisteUpdate.getNaziv());
+    }
 }

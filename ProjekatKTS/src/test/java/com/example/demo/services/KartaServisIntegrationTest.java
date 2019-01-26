@@ -30,7 +30,7 @@ public class KartaServisIntegrationTest {
     @Test
     public void testFind_All() {
         List<Karta> karta = kartaServis.findAll();
-        assertEquals(2, karta.size());
+        assertEquals(3, karta.size());
     }
    
     @Test
@@ -106,6 +106,24 @@ public class KartaServisIntegrationTest {
        
         List<Karta> karte = kartaServis.findAll();
         assertNotEquals(karte.size(), dbSizeBeforeRemove-1);
+    }
+    
+    @Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+    public void testUpdate() {
+    	Karta karta1 = kartaServis.getOne(-2L);
+        karta1.setCena(1000);
+        karta1.setTip(TipKarte.dnevna);
+        
+        
+        Karta karta2 = kartaServis.save(karta1);
+       
+        assertThat(karta2).isNotNull();
+        Karta kartaUpdate = kartaServis.getOne(-2L);
+       
+        assertEquals(1000,kartaUpdate.getCena());
+        assertEquals(TipKarte.dnevna, kartaUpdate.getTip());
     }
  
 }

@@ -101,5 +101,23 @@ public class LinijaServisIntegrationTest {
 		List<Linija> linije = linijaServis.findAll();
 		assertNotEquals(linije.size(), dbSizeBeforeRemove-1);
 	}
+	
+	@Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+    public void testUpdate() {
+    	Linija linija1 = linijaServis.getOne(-2L);
+        linija1.setBroj("00");
+        linija1.setNaziv("TestLinija");
+        
+        
+        Linija linija2 = linijaServis.save(linija1);
+       
+        assertThat(linija2).isNotNull();
+        Linija polazakUpdate = linijaServis.getOne(-2L);
+       
+        assertEquals("00",polazakUpdate.getBroj());
+        assertEquals("TestLinija",polazakUpdate.getNaziv());
+    }
 
 }

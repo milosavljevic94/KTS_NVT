@@ -105,4 +105,23 @@ public class VoziloServisIntegrationTest {
 		assertNotEquals(vozila.size(), dbSizeBeforeRemove-1);
 	}
 	
+	@Test
+    @Transactional
+    @Rollback(true) //it can be omitted because it is true by default
+    public void testUpdate() {
+    	Vozilo vozilo = voziloServis.getOne(-2L);
+        vozilo.setLinija(-3L);
+        vozilo.setStajaliste(-3L);
+        vozilo.setTip(TipVozila.tramvaj);
+        
+        Vozilo dbVozilo = voziloServis.save(vozilo);
+       
+        assertThat(dbVozilo).isNotNull();
+        Vozilo voziloUpdate = voziloServis.getOne(-2L);
+       
+        assertEquals(new Long(-3L),voziloUpdate.getStajaliste());
+        assertEquals(new Long(-3L),dbVozilo.getLinija());
+        assertEquals(dbVozilo.getTip(),TipVozila.tramvaj);
+    }
+	
 }

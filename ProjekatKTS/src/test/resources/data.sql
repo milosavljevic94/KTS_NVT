@@ -44,5 +44,6 @@ insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-3,3,3,'tr
 
 insert into cenovnik(id, datum_do, datum_od) values(-1,'2019-05-13', '2019-01-13');
 
-insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-1, 1, 200, -1, 'dnevna', '2019-01-25', '2019-01-25');
+insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-1,1, 200, -2, 'mesecna', '2019-01-25', '2019-01-25');
+insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-2, 1, 200, -1, 'dnevna', '2019-01-25', '2019-01-25');
 
