@@ -61,7 +61,7 @@ public class KorisnikKontroler {
             		kor.getKorisnikAuthorities().iterator().next().getAuthority().getNaziv());
             return new ResponseEntity<>(logRepDTO, HttpStatus.OK);
         } catch (Exception ex) {
-            return new ResponseEntity<String>("Logovanje nije uspelo", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(loginDTO, HttpStatus.BAD_REQUEST);
         }
 	}
 	
