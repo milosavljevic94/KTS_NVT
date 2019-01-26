@@ -5,6 +5,10 @@ public class LoginRequestDTO {
 	private String email;
 	private String lozinka;
 	
+	public LoginRequestDTO() {
+		super();
+	}
+
 	public LoginRequestDTO(String email, String lozinka) {
 		super();
 		this.email = email;
