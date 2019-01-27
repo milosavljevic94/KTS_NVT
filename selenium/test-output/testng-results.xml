@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="5545" started-at="2019-01-27T17:01:41Z" finished-at="2019-01-27T17:01:46Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="5545" started-at="2019-01-27T17:01:41Z" finished-at="2019-01-27T17:01:46Z">
+      <class name="com.example.demo.selenium.HomePageTest">
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="setupSelenium" is-config="true" duration-ms="4482" started-at="2019-01-27T18:01:41Z" finished-at="2019-01-27T18:01:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSelenium -->
+        <test-method status="PASS" signature="testAddStudent()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="testAddStudent" duration-ms="5" started-at="2019-01-27T18:01:45Z" finished-at="2019-01-27T18:01:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddStudent -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="closeSelenium" is-config="true" duration-ms="1047" started-at="2019-01-27T18:01:45Z" finished-at="2019-01-27T18:01:46Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+      </class> <!-- com.example.demo.selenium.HomePageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
