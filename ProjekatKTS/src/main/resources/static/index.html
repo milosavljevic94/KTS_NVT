@@ -12,7 +12,54 @@
 	
 		<header>
     		<h1>Gradski Prevoz</h1>
-    	</header>
+		</header>
+		
+    	<div ng-switch="korisnik.tip">
+  			<div ng-switch-when="zaposleni">
+				<div class="topnav">
+					<a ng-href="#!/">Red Voznje</a>
+					<a ng-href="#!/addPolazak">Novi Polazak</a>
+					<a ng-href="#!/addStajaliste">Novo Stajaliste</a>
+					<a ng-href="#!/addLinija">Nova Linija</a>
+					<a ng-href="#!/korisnici">Korisnici</a>
+					<a ng-href="#!/cenovnik">Cenovnik</a>
+					<span>{{korisnik.tip}}</span>
+					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+				</div>
+  			</div>
+  			<div ng-switch-when="gradjanin">
+  				<div class="topnav">
+					<a ng-href="#!/">Red Voznje</a>
+					<a ng-href="#!/cenovnik">Cenovnik</a>
+					<span>{{korisnik.tip}}</span>
+					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+				</div>
+			</div>
+			<div ng-switch-when="ucenik">
+  				<div class="topnav">
+					<a ng-href="#!/">Red Voznje</a>
+					<a ng-href="#!/cenovnik">Cenovnik</a>
+					<span>{{korisnik.tip}}</span>
+					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+				</div>
+			 </div>
+			<div ng-switch-when="penzioner">
+  				<div class="topnav">
+					<a ng-href="#!/">Red Voznje</a>
+					<a ng-href="#!/cenovnik">Cenovnik</a>
+					<span>{{korisnik.tip}}</span>
+					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+				</div>
+  			</div>
+  			<div ng-switch-default>
+  				<div class="topnav">
+					<a ng-href="#!/">Red Voznje</a>
+					<a ng-href="#!/prijava">Prijava</a>
+					<a ng-href="#!/registracija">Registracija</a>
+				</div>
+  			</div>
+		</div>
+
     	<div ng-controller="prijavaKontroler">
 	    	<h2 id="korisnikStatus" style="color:green" ng-show="tipKorisnika">
 	    		Prijavljeni ste kao <span ng-bind="tipKorisnika"></span>.
@@ -20,13 +67,6 @@
     	</div>
     	
 		<div ng-view></div>
-
-		<!--<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model="stajalistaFields.fields[$index]">
-			<option ng-repeat="stajaliste1 in stajalista" value="{{stajaliste1}}">{{stajaliste1.naziv}}</option>
-		</select>
-		<button type="button" ng-click="addStajalisteField()">Novi</button>-->
-
-		<!--<div ng-map style="width:1000px;height:500px" center="45.267136, 19.833549">-->
 		
 		<script src="node_modules/angular/angular.js"></script>
 		<script src="node_modules/angular-route/angular-route.js"></script>

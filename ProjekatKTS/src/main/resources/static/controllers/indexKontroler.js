@@ -43,7 +43,8 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 	}
 	
 	$scope.odjava = function() {
-		$rootScope.korisnik = null;
+		$rootScope.korisnik = undefined;
+		$rootScope.tipKorisnika = undefined;
 		document.getElementById("korisnikStatus").innerHTML = "";
 		$window.location.assign("http://localhost:8080/#!");
 	}
