@@ -32,10 +32,17 @@ public class HomePage {
 	@FindBy(xpath = "//*[@id=\"error\"]")
 	private WebElement errorMessage;
 	
+	@FindBy(xpath = "/html/body/div[1]/div/div/a[3]")
+	private WebElement korisnikStatus;
 	
+	public void korisnikStatusFieldisVisible() {
+		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(korisnikStatus));
+	}
+
 	public WebElement getButtonPrijava() {
 		return buttonPrijava;
 	}
+	
 
 
 	public void setButtonPrijava(WebElement buttonPrijava) {
@@ -135,9 +142,5 @@ public class HomePage {
 	protected void load() {
 		
 	}
-	
-
-
-
 	
 }

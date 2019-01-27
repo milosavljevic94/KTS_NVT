@@ -1,21 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="5545" started-at="2019-01-27T17:01:41Z" finished-at="2019-01-27T17:01:46Z">
+  <suite name="Default suite" duration-ms="46336" started-at="2019-01-27T20:48:16Z" finished-at="2019-01-27T20:49:02Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="5545" started-at="2019-01-27T17:01:41Z" finished-at="2019-01-27T17:01:46Z">
+    <test name="Default test" duration-ms="46336" started-at="2019-01-27T20:48:16Z" finished-at="2019-01-27T20:49:02Z">
       <class name="com.example.demo.selenium.HomePageTest">
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="setupSelenium" is-config="true" duration-ms="4482" started-at="2019-01-27T18:01:41Z" finished-at="2019-01-27T18:01:45Z">
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="setupSelenium" is-config="true" duration-ms="4164" started-at="2019-01-27T21:48:16Z" finished-at="2019-01-27T21:48:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testAddStudent()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="testAddStudent" duration-ms="5" started-at="2019-01-27T18:01:45Z" finished-at="2019-01-27T18:01:45Z">
+        <test-method status="PASS" signature="testClickLogin()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="testClickLogin" duration-ms="4702" started-at="2019-01-27T21:48:20Z" finished-at="2019-01-27T21:48:25Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testAddStudent -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@61832929]" name="closeSelenium" is-config="true" duration-ms="1047" started-at="2019-01-27T18:01:45Z" finished-at="2019-01-27T18:01:46Z">
+        </test-method> <!-- testClickLogin -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="closeSelenium" is-config="true" duration-ms="787" started-at="2019-01-27T21:48:25Z" finished-at="2019-01-27T21:48:26Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="setupSelenium" is-config="true" duration-ms="3796" started-at="2019-01-27T21:48:26Z" finished-at="2019-01-27T21:48:30Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSelenium -->
+        <test-method status="PASS" signature="testClickLoginBadMail()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="testClickLoginBadMail" duration-ms="4677" started-at="2019-01-27T21:48:30Z" finished-at="2019-01-27T21:48:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickLoginBadMail -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="closeSelenium" is-config="true" duration-ms="705" started-at="2019-01-27T21:48:34Z" finished-at="2019-01-27T21:48:35Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="setupSelenium" is-config="true" duration-ms="3662" started-at="2019-01-27T21:48:35Z" finished-at="2019-01-27T21:48:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSelenium -->
+        <test-method status="PASS" signature="testClickLoginBadMailFormat()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="testClickLoginBadMailFormat" duration-ms="4718" started-at="2019-01-27T21:48:39Z" finished-at="2019-01-27T21:48:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickLoginBadMailFormat -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="closeSelenium" is-config="true" duration-ms="708" started-at="2019-01-27T21:48:43Z" finished-at="2019-01-27T21:48:44Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="setupSelenium" is-config="true" duration-ms="3720" started-at="2019-01-27T21:48:44Z" finished-at="2019-01-27T21:48:48Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSelenium -->
+        <test-method status="PASS" signature="testClickLoginBadPassWord()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="testClickLoginBadPassWord" duration-ms="4675" started-at="2019-01-27T21:48:48Z" finished-at="2019-01-27T21:48:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickLoginBadPassWord -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="closeSelenium" is-config="true" duration-ms="718" started-at="2019-01-27T21:48:52Z" finished-at="2019-01-27T21:48:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeSelenium -->
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="setupSelenium" is-config="true" duration-ms="3994" started-at="2019-01-27T21:48:53Z" finished-at="2019-01-27T21:48:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setupSelenium -->
+        <test-method status="PASS" signature="testClickLoginNoMail()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="testClickLoginNoMail" duration-ms="4598" started-at="2019-01-27T21:48:57Z" finished-at="2019-01-27T21:49:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testClickLoginNoMail -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.HomePageTest@6a41eaa2]" name="closeSelenium" is-config="true" duration-ms="691" started-at="2019-01-27T21:49:02Z" finished-at="2019-01-27T21:49:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeSelenium -->
