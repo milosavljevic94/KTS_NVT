@@ -2,6 +2,7 @@ package com.example.demo.selenium;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -22,6 +23,7 @@ private WebDriver browser;
 		browser.manage().window().maximize();
 		//navigate
 		browser.navigate().to("http://localhost:8080");
+		homePage = PageFactory.initElements(browser, HomePage.class);
 		
 	}
 	
