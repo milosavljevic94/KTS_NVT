@@ -35,8 +35,19 @@ public class HomePage {
 	@FindBy(xpath = "/html/body/div[1]/div/div/a[3]")
 	private WebElement korisnikStatus;
 	
+	@FindBy(xpath = "/html/body/div[1]/div/div/a[3]")
+	private WebElement registracijaButton;
+	
 	public void korisnikStatusFieldisVisible() {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(korisnikStatus));
+	}
+
+	public WebElement getRegistracijaButton() {
+		return registracijaButton;
+	}
+
+	public void setRegistracijaButton(WebElement registracijaButton) {
+		this.registracijaButton = registracijaButton;
 	}
 
 	public WebElement getButtonPrijava() {
@@ -122,6 +133,11 @@ public class HomePage {
 	public void SubmitensureIsDisplayed() {
 		(new WebDriverWait(driver, 10))
 			.until(ExpectedConditions.elementToBeClickable(submitButton));
+	}
+	
+	public void ensureRegistracijaIsDisplayed() {
+		(new WebDriverWait(driver, 10))
+			.until(ExpectedConditions.elementToBeClickable(registracijaButton));
 	}
 	
 
