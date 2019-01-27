@@ -60,11 +60,10 @@ private WebDriver browser;
 		
 	
 	}
-	
-	
+	//TO DO, POSTOJECI EMAIL
+	/*
 	@Test
-	public void testRegistracijaOK() throws InterruptedException {
-		// check is HomePage OK
+	public void testMailAllreadyInDB() throws InterruptedException {
 		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
 		Thread.sleep(1000);
 		//check LoginButton and Click
@@ -85,6 +84,48 @@ private WebDriver browser;
 		registracijaPage.setInputIme("TestE2E");
 		registracijaPage.setInputPrezime("teste2e");
 		registracijaPage.setInputEmail("testE2E@kts.com");
+		Thread.sleep(15000);
+		registracijaPage.setInputPassword("test");
+		registracijaPage.setInputPasswordRepeat("test");
+		
+		
+		registracijaPage.getOkButton().click();
+		assertFalse(registracijaPage.getOkButton().isEnabled());
+		Thread.sleep(1000);
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
+		
+		
+		Thread.sleep(1500);
+		
+	
+	}
+	*/
+	
+	@Test
+	public void testRegistracijaOK() throws InterruptedException {
+		// check is HomePage OK
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
+		Thread.sleep(1000);
+		//check LoginButton and Click
+		homePage.ensureRegistracijaIsDisplayed();
+		homePage.getRegistracijaButton().click();
+		Thread.sleep(1500);
+		//check is Page correct
+		assertEquals("http://localhost:8080/#!/registracija", browser.getCurrentUrl());
+		
+		//check page objects
+		registracijaPage.ensureImeFieldiSPresent();
+		registracijaPage.ensurePrezimeFieldiSPresent();
+		registracijaPage.ensurePassWordFieldiSPresent();
+		registracijaPage.ensureUserNameFieldiSPresent();
+		registracijaPage.ensurePasswordRepeatFieldiSPresent();
+		
+		int random = (int )(Math.random() * 50 + 1);//For test purposes, not to duplicate user
+		
+		registracijaPage.setInputIme("TestE2E");
+		registracijaPage.setInputPrezime("teste2e");
+		registracijaPage.setInputEmail("testE2E" + random + "@kts.com");
+		Thread.sleep(15000);
 		registracijaPage.setInputPassword("test");
 		registracijaPage.setInputPasswordRepeat("test");
 		
