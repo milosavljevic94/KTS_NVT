@@ -95,5 +95,27 @@ app.config(function($routeProvider) {
 		},
 
 		templateUrl: 'partials/korisnikDetails.html'
+	}).when('/mojeKarte',
+	{
+		resolve: {
+			"check": function($location, $rootScope) {
+				if($rootScope.tipKorisnika==undefined) {
+					$location.path('/');
+				}
+			}
+		},
+
+		templateUrl: 'partials/mojeKarte.html'
+	}).when('/kartaDetails',
+	{
+		resolve: {
+			"check": function($location, $rootScope) {
+				if($rootScope.tipKorisnika==undefined) {
+					$location.path('/');
+				}
+			}
+		},
+
+		templateUrl: 'partials/kartaDetails.html'
 	})
 });

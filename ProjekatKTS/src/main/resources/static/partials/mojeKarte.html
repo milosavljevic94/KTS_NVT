@@ -1,0 +1,20 @@
+<div  ng-controller="indexKontroler">
+			<table border="1">
+				<thead>
+					<tr>
+                        <td align="center">Id</td>
+						<td align="center">Tip Karte</td>
+                        <td align="center">Aktivirana:</td>
+                        <td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="karta in karteTrenutnogKorisnika">
+                        <td align="center">{{karta.id}}</td>
+						<td align="center">{{karta.tip}}</td>
+						<td align="center">{{karta.aktivirana ? 'Da' : 'Ne' }}</td>
+						<td align="center"><button type="button" class='btn btn-default' ng-click="kartaDetails(karta)">Detaljnije</button></td>
+					</tr>
+				</tbody>
+			</table>
+</div>

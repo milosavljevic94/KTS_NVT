@@ -7,6 +7,7 @@ app.controller('prijavaKontroler', function($scope, $http, $rootScope, $location
 				$window.location.replace("http://localhost:8080/#!/");
 				$rootScope.korisnik = response.data;
 				$rootScope.tipKorisnika = $rootScope.korisnik.tip;
+				$rootScope.refresh();
 				//console.log($rootScope.tipKorisnika);
 				//document.getElementById("korisnikStatus").innerHTML = "Prijavljeni ste kao "+$rootScope.korisnik.tip+".";
             }, function(error) {
