@@ -1,17 +1,19 @@
 <div ng-controller="zaposleniKontroler">
+	<h2>Nova linija</h2>
+	
 	<form name="addLinijaForm" action="/">
 		<table border="1"  cellpadding="5">
 			<div>
 				<tr>
 					<td>Broj: </td>
-					<td><input type="text" id="broj" ng-model="linija.broj" pattern="\d+" required></td>
+					<td><input type="text" id="broj" ng-model="linija.broj" pattern="[1-9]{1,2}(\D{0,3})" required></td>
 				</tr>
 				<tr>
 					<td>Naziv: </td>
 					<td><input type="text" id="naziv" ng-model="linija.naziv" required></td>
 				</tr>
 				<tr>
-					<td align="center">Stajalista:</td>
+					<td>Stajalis&#878;ta:</td>
 					<td align="center">
 						<select style="float: left; clear: both;" ng-repeat="field in stajalistaFields.fields track by $index" ng-model="stajalistaFields.fields[$index]">
 							<option ng-repeat="stajaliste1 in stajalista" value="{{stajaliste1}}">{{stajaliste1.naziv}}</option>
@@ -20,7 +22,7 @@
 					<td><button type="button" ng-click="addStajalisteField()">+</button></td>
 				</tr>
 				<tr>
-					<td align="center">Polasci:</td>
+					<td>Polasci:</td>
 					<td align="center">
 						<select style="float: left; clear: both;" ng-repeat="field in polasciFields.fields track by $index" ng-model="polasciFields.fields[$index]">
 							<option ng-repeat="polazak1 in polasci" value="{{polazak1}}">{{polazak1.vreme + " " + polazak1.dan}}</option>
@@ -34,8 +36,16 @@
 					<option value="tramvaj">tramvaj</option>
 					<option value="metro">metro</option>
 				</select></td></tr>
-				<tr><td></td><td><button ng-disabled="addLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinija()">Dodaj</button></td></tr>
+				<tr>
+					<td colspan="3" style="text-align:center;">
+						<button style="width:110px;height:30px;" ng-disabled="addLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinija()">Dodaj</button>
+					</td>
+				</tr>
 			</div>
 		</table>
 	</form>
+	
+	<h2 id="linijaSuccess" style="color:green" ng-show="linijaStatus">
+		Linija <span ng-bind="linijaStatus.broj"></span> <span ng-bind="linijaStatus.naziv"></span> uspes&#878;no dodata.
+	</h2>
 </div>

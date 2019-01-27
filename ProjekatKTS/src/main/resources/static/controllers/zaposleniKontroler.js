@@ -59,6 +59,7 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 	
 	$scope.addStajaliste = function(stajaliste) {
 		stajalisteFactory.addStajaliste(stajaliste).then(function(data) {
+			$scope.stajalisteStatus = data.data;
 			//$scope.refresh();
 			//toast('Stajaliste ' + stajaliste.naziv + " dodato.");
 		}).catch(function (response) {
@@ -69,6 +70,7 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 	
 	$scope.addLinija = function(linija) {
 		linijaFactory.addLinija(linija).then(function(data) {
+			$scope.linijaStatus = data.data;
 			//$scope.refresh();
 			//toast('Stajaliste ' + stajaliste.naziv + " dodato.");
 		}).catch(function (response) {

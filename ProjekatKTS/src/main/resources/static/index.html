@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" type="text/css" href="css/test.css" media="screen" />
         <link rel="stylesheet" type="text/css" href="css/toast.css" media="screen" />
-        <script src="http://maps.google.com/maps/api/js"></script>
+        <script async defer src="http://maps.google.com/maps/api/js?key=AIzaSyD1miN3YuQiM3Uem8OfGGGuHypT2cgUtwk&callback=initMap"></script>
         <title>Gradski Prevoz</title>
     </head>
     <body ng-controller="indexKontroler" style="background-color: #222233; color: #AACCFF; font-family: Calibri, Myriad;">
@@ -23,7 +23,7 @@
                     <a ng-href="#!/addLinija">Nova linija</a>
                     <a ng-href="#!/korisnici">Korisnici</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
-                    <a ng-href="#!/mojeKarte">Moje Karte</a>
+                    <a ng-href="#!/mojeKarte">Moje karte</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
                     <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
@@ -32,7 +32,7 @@
                 <div class="topnav">
                     <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
-                    <a ng-href="#!/mojeKarte">Moje Karte</a>
+                    <a ng-href="#!/mojeKarte">Moje karte</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
                     <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
@@ -50,7 +50,7 @@
                 <div class="topnav">
                     <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
-                    <a ng-href="#!/mojeKarte">Moje Karte</a>
+                    <a ng-href="#!/mojeKarte">Moje karte</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
                     <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>

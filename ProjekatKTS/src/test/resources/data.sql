@@ -20,11 +20,11 @@ insert into korisnik_authority(id, authority_id, korisnik_id) values (-4, 3, -2)
 
 insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(-1,'Bulevar Cara Lazara 10', 11.04,12.08,'Merkator');
 insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(-2,'Bulevar Oslobodjenja 13', 14.04,18.08,'Futoska Pijaca');
-insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(-3,'Bulevar Evrope 11', 1.04,2.08,'BulevarEvrope');
+insert into stajaliste(id, adresa, lokacijax, lokacijay, naziv) values(-3,'Bulevar Evrope 11', 1.04,2.08,'Bulevar Evrope');
 
-insert into linija(id, broj, naziv, tip) values(-1,1,'Centar-Telep','autobus');
-insert into linija(id, broj, naziv, tip) values(-2,4,'Centar-Bulevar','autobus');
-insert into linija(id, broj, naziv, tip) values(-3,13,'BulevarEvrope-Centar','tramvaj');
+insert into linija(id, broj, naziv, tip) values(-1,1,'Centar - Telep','autobus');
+insert into linija(id, broj, naziv, tip) values(-2,4,'Centar - Bulevar','autobus');
+insert into linija(id, broj, naziv, tip) values(-3,13,'Bulevar Evrope - Centar','tramvaj');
 
 insert into polazak(id, dan, vreme) values(-1, "Radni dan", "11:45");
 insert into polazak(id, dan, vreme) values(-2, "Nedelja", "13:50");
@@ -38,12 +38,12 @@ insert into linija_stajalista(linija_id, stajalista_id) values(-1,-1);
 insert into linija_stajalista(linija_id, stajalista_id) values(-2,-2);
 insert into linija_stajalista(linija_id, stajalista_id) values(-3,-3);
 
-insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-1,1,1,'autobus');
-insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-2,2,2,'autobus');
-insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-3,3,3,'tramvaj');
+insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-1,-1,-1,'autobus');
+insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-2,-2,-2,'autobus');
+insert into vozilo(id, id_linija, id_trenutno_stajaliste, tip) values(-3,-3,-3,'tramvaj');
 
 insert into cenovnik(id, datum_do, datum_od) values(-1,'2019-05-13', '2019-01-13');
 
-insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-1,1, 200, -2, 'mesecna', '2019-01-25', '2019-01-25');
+insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-1, 1, 200, -2, 'mesecna', '2019-01-25', '2019-01-25');
 insert into karte(id, aktivirana, cena, id_vlasnik, tip, vazi_do, vazi_od) values (-2, 1, 200, -1, 'dnevna', '2019-01-25', '2019-01-25');
 
