@@ -9,7 +9,9 @@ public class LoginResponseDTO {
     private String email;
     private String tip;
     
-    public LoginResponseDTO() {};
+    public LoginResponseDTO() {
+    	super();
+    };
     
     public LoginResponseDTO(String token, Long id, String email, String tip) {
 		super();

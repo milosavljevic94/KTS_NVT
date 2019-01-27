@@ -8,13 +8,13 @@
                     <td align="center"></td>
                 </tr>
                 <tr><td>Jednokratna</td><td>100.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('jednokratna')">Kupi</button></td></tr>
                 <tr><td>Dnevna</td><td>250.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('dnevna')">Kupi</button></td></tr>
                 <tr><td>Mesecna (penzioner)</td><td>1950.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('mesecnaPenzionerska')">Kupi</button></td></tr>
                 <tr><td>Godisnja (penzioner)</td><td>18000.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('godisnjaPenzionerska')">Kupi</button></td></tr>
             </table>
         </div>
         <div ng-switch-when="ucenik">
@@ -25,13 +25,13 @@
                     <td align="center"></td>
                 </tr>
                 <tr><td>Jednokratna</td><td>100.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('jednokratna')">Kupi</button></td></tr>
                 <tr><td>Dnevna</td><td>250.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('dnevna')">Kupi</button></td></tr>
                 <tr><td>Mesecna (ucenik)</td><td>1650.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('mesecnaSkolska')">Kupi</button></td></tr>
                 <tr><td>Godisnja (ucenik)</td><td>13500.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('godisnjaSkolska')">Kupi</button></td></tr>
             </table>
         </div>
         <div ng-switch-default>
@@ -42,13 +42,13 @@
                     <td align="center"></td>
                 </tr>
                 <tr><td>Jednokratna</td><td>100.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('jednokratna')">Kupi</button></td></tr>
                 <tr><td>Dnevna</td><td>250.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('dnevna')">Kupi</button></td></tr>
                 <tr><td>Mesecna (gradjanin)</td><td>3400.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('mesecna')">Kupi</button></td></tr>
                 <tr><td>Godisnja (gradjanin)</td><td>28000.00 din</td>
-                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="">Kupi</button></td></tr>
+                    <td><button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="kupiKartu('godisnja')">Kupi</button></td></tr>
             </table>
         </div>
     </div>
