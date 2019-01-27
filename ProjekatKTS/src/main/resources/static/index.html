@@ -23,7 +23,7 @@
 					<a ng-href="#!/addLinija">Nova Linija</a>
 					<a ng-href="#!/korisnici">Korisnici</a>
 					<a ng-href="#!/cenovnik">Cenovnik</a>
-					<span>{{korisnik.tip}}</span>
+					<a>{{tipKorisnika + ": " + korisnik.email}}</a>
 					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
 				</div>
   			</div>
@@ -31,7 +31,7 @@
   				<div class="topnav">
 					<a ng-href="#!/">Red Voznje</a>
 					<a ng-href="#!/cenovnik">Cenovnik</a>
-					<span>{{korisnik.tip}}</span>
+					<a>{{tipKorisnika + ": " + korisnik.email}}</a>
 					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
 				</div>
 			</div>
@@ -39,7 +39,7 @@
   				<div class="topnav">
 					<a ng-href="#!/">Red Voznje</a>
 					<a ng-href="#!/cenovnik">Cenovnik</a>
-					<span>{{korisnik.tip}}</span>
+					<a>{{tipKorisnika + ": " + korisnik.email}}</a>
 					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
 				</div>
 			 </div>
@@ -47,7 +47,7 @@
   				<div class="topnav">
 					<a ng-href="#!/">Red Voznje</a>
 					<a ng-href="#!/cenovnik">Cenovnik</a>
-					<span>{{korisnik.tip}}</span>
+					<a>{{tipKorisnika + ": " + korisnik.email}}</a>
 					<a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
 				</div>
   			</div>
@@ -60,11 +60,11 @@
   			</div>
 		</div>
 
-    	<div ng-controller="prijavaKontroler">
+    	<!--<div ng-controller="prijavaKontroler">
 	    	<h2 id="korisnikStatus" style="color:green" ng-show="tipKorisnika">
 	    		Prijavljeni ste kao <span ng-bind="tipKorisnika"></span>.
 	    	</h2>
-    	</div>
+    	</div>-->
     	
 		<div ng-view></div>
 		
