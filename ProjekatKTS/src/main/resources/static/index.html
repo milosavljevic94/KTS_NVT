@@ -17,43 +17,43 @@
         <div ng-switch="korisnik.tip">
             <div ng-switch-when="zaposleni">
                 <div class="topnav">
-                    <a ng-href="#!/">Red Voznje</a>
-                    <a ng-href="#!/addPolazak">Novi Polazak</a>
-                    <a ng-href="#!/addStajaliste">Novo Stajaliste</a>
-                    <a ng-href="#!/addLinija">Nova Linija</a>
+                    <a ng-href="#!/">Red vožnje</a>
+                    <a ng-href="#!/addPolazak">Novi polazak</a>
+                    <a ng-href="#!/addStajaliste">Novo stajalište</a>
+                    <a ng-href="#!/addLinija">Nova linija</a>
                     <a ng-href="#!/korisnici">Korisnici</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
-                    <a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+                    <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
             </div>
             <div ng-switch-when="gradjanin">
                 <div class="topnav">
-                    <a ng-href="#!/">Red Voznje</a>
+                    <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
-                    <a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+                    <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
             </div>
             <div ng-switch-when="ucenik">
                 <div class="topnav">
-                    <a ng-href="#!/">Red Voznje</a>
+                    <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
-                    <a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+                    <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
              </div>
             <div ng-switch-when="penzioner">
                 <div class="topnav">
-                    <a ng-href="#!/">Red Voznje</a>
+                    <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/cenovnik">Cenovnik</a>
                     <a>{{tipKorisnika + ": " + korisnik.email}}</a>
-                    <a ng-href="#!/" ng-click="odjava()">Izloguj se</a>
+                    <a ng-href="#!/" ng-click="odjava()">Odjava</a>
                 </div>
             </div>
             <div ng-switch-default>
                 <div class="topnav">
-                    <a ng-href="#!/">Red Voznje</a>
+                    <a ng-href="#!/">Red vožnje</a>
                     <a ng-href="#!/prijava">Prijava</a>
                     <a ng-href="#!/registracija">Registracija</a>
                 </div>

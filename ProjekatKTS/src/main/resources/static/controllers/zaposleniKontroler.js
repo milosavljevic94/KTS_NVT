@@ -46,9 +46,9 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		});
 	}
 	
-	
 	$scope.addPolazak = function(polazak) {
 		polazakFactory.addPolazak(polazak).then(function(data) {
+			$scope.polazakStatus = data.data;
 			//$scope.refresh();
 			//toast("Polazak dodat.");
 		}).catch(function (response) {

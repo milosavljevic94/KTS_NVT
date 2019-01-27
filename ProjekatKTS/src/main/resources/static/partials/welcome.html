@@ -12,8 +12,10 @@
     
     <br><br>
     
+    <h3>Linija i dan:</h3>
+    
 	<form name="displayLinijaForm" action="/">
-		<table border="1"  cellpadding="5">
+		<table border="1" cellpadding="5">
 			<div>
 				<tr>
 					<td>
@@ -22,20 +24,23 @@
 						</select>
 					</td>
 					<td>
-						<select id="dan" ng-model="selektovaniDan">
-							<option value="Radni dan">radni dan</option>
-							<option value="Subota">subota</option>
-							<option value="Nedelja">nedelja</option>
+						<select id="dan" ng-init="selektovaniDan = 'Radni dan'" ng-model="selektovaniDan">
+							<option value="Radni dan">Radni dan</option>
+							<option value="Subota">Subota</option>
+							<option value="Nedelja">Nedelja</option>
 						</select>
 					</td>
 					<td>
-						<button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinijaDisplay()">Prikazi</button>
+						<button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinijaDisplay()">Prikaz&#878;i</button>
 					</td>
 				</tr>
 			</div>
 		</table>
 	</form>
 	<span>
+	
+	<br><br>
+	
     <span ng-map style="width:1000px;height:500px;float:left;" center="45.267136, 19.833549"></span>
     
     <table border="1"  cellpadding="5">
