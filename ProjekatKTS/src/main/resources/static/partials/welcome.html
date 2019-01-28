@@ -20,7 +20,7 @@
 				<tr>
 					<td>
 						<select id="linija1" ng-model="selektovanaLinija">
-							<option ng-repeat="linija in linije" value="{{linija}}">{{linija.naziv}}</option>
+							<option ng-repeat="linija in linije | orderBy:'broj'" value="{{linija}}">{{linija.broj+" "+linija.naziv}}</option>
 						</select>
 					</td>
 					<td>
@@ -31,7 +31,7 @@
 						</select>
 					</td>
 					<td>
-						<button ng-disabled="displayLinijaForm.$invalid" type="button" class='btn btn-default' ng-click="submitLinijaDisplay()">Prikaz&#878;i</button>
+						<button ng-disabled="displayLinijaForm.$invalid" style="width:70px;height:25px;" type="button" class='btn btn-default' ng-click="submitLinijaDisplay()">Prika&zcaron;i</button>
 					</td>
 				</tr>
 			</div>

@@ -1,14 +1,21 @@
 <div  ng-controller="indexKontroler">
+		<h2>Pregled karte</h2>
+		
 		<form name="kartaDetailsForm" action="/">
 			<table border="1" cellpadding="5">
-                <tr><td>Id: </td><td>{{detailViewKarta.id}}</td></tr>
+                <tr><td>Oznaka: </td><td>{{detailViewKarta.id}}</td></tr>
                 <tr><td>Tip: </td><td>{{detailViewKarta.tip}}</td></tr>
                 <tr><td>Aktivirana: </td><td>{{detailViewKarta.aktivirana ? 'Da' : 'Ne' }}</td></tr>
                 <tr><td>Od: </td><td>{{detailViewKarta.vaziOd}}</td></tr>
                 <tr><td>Do: </td><td>{{detailViewKarta.vaziDo}}</td></tr>
                 <tr><td>Cena: </td><td>{{detailViewKarta.cena}}</td></tr>
-				<tr><td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button>
-				<td align="center"><button ng-show="detailViewKarta.aktivirana == false" type="button" class='btn btn-default' ng-click="updateKarta(detailViewKarta)">Aktiviraj</button></td></tr>
+				<tr>
+					<td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button></td>
+					<td align="center">
+						<em ng-show="detailViewKarta.aktivirana==true">Aktivirana</em>
+						<button ng-show="detailViewKarta.aktivirana==false" type="button" class='btn btn-default' ng-click="updateKarta(detailViewKarta)">Aktiviraj</button>
+					</td>
+				</tr>
 			</table>
 		</form>
 </div>
