@@ -3,6 +3,8 @@ package com.example.demo.controller;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +37,7 @@ public class KorisnikKontrolerTest {
 			.thenReturn(new Korisnik("Pera", "Peric", "test@gmail.com", "123"));
 	}
 	
-	@Test
+	@Test(expected = EntityNotFoundException.class)
 	public void testGetKorisnik() {
 		ResponseEntity<Korisnik> responseEntity =
 				restTemplate.getForEntity("/api/korisnik/email/test@gmail.com", Korisnik.class);
