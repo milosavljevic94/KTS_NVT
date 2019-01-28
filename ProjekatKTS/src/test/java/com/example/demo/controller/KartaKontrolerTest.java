@@ -37,19 +37,19 @@ public class KartaKontrolerTest {
 	@SuppressWarnings("deprecation")
 	@Before
 	public void setUp() {
-		Mockito.when(kartaServisMocked.getOne(13456L)).thenReturn(new Karta(13456L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, 1L));
+		Mockito.when(kartaServisMocked.getOne(-1L)).thenReturn(new Karta(-1L, TipKarte.mesecna, true, new Date(11,11,2015), new Date (11,12,2015), 1250, 1L));
 	}
 	
 	@Test
 	public void testGetKarta() {
 		ResponseEntity<Karta> responseEntity =
-	            restTemplate.getForEntity("/api/karta?id=1L", Karta.class);
+	            restTemplate.getForEntity("/api/karta/-1", Karta.class);
 		
 		Karta karta = responseEntity.getBody();
 		
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		assertNotNull(karta);
-        assertEquals(new Long(13456L), karta.getId());
+        assertEquals(new Long(-1L), karta.getId());
 	}
 	
 }
