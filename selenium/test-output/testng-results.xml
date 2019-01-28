@@ -1,97 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="72652" started-at="2019-01-27T21:39:09Z" finished-at="2019-01-27T21:40:22Z">
+  <suite name="Default suite" duration-ms="19285" started-at="2019-01-28T01:25:15Z" finished-at="2019-01-28T01:25:34Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="72652" started-at="2019-01-27T21:39:09Z" finished-at="2019-01-27T21:40:22Z">
-      <class name="com.example.demo.selenium.RegistracijaTest">
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="6233" started-at="2019-01-27T22:39:09Z" finished-at="2019-01-27T22:39:16Z">
+    <test name="Default test" duration-ms="19285" started-at="2019-01-28T01:25:15Z" finished-at="2019-01-28T01:25:34Z">
+      <class name="com.example.demo.selenium.LoginZaposleniTest">
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="setupSelenium" is-config="true" duration-ms="4366" started-at="2019-01-28T02:25:15Z" finished-at="2019-01-28T02:25:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaClick()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaClick" duration-ms="4759" started-at="2019-01-27T22:39:16Z" finished-at="2019-01-27T22:39:20Z">
+        <test-method status="PASS" signature="testClickLoginZaposleni()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="testClickLoginZaposleni" duration-ms="4423" started-at="2019-01-28T02:25:19Z" finished-at="2019-01-28T02:25:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRegistracijaClick -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="1049" started-at="2019-01-27T22:39:20Z" finished-at="2019-01-27T22:39:22Z">
+        </test-method> <!-- testClickLoginZaposleni -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="closeSelenium" is-config="true" duration-ms="1287" started-at="2019-01-28T02:25:23Z" finished-at="2019-01-28T02:25:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="4163" started-at="2019-01-27T22:39:22Z" finished-at="2019-01-27T22:39:26Z">
+        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="setupSelenium" is-config="true" duration-ms="3706" started-at="2019-01-28T02:25:25Z" finished-at="2019-01-28T02:25:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaNoMail()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaNoMail" duration-ms="4599" started-at="2019-01-27T22:39:26Z" finished-at="2019-01-27T22:39:30Z">
+        <test-method status="PASS" signature="testClickOdjavaZaposleni()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="testClickOdjavaZaposleni" duration-ms="4597" started-at="2019-01-28T02:25:28Z" finished-at="2019-01-28T02:25:33Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- testRegistracijaNoMail -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="917" started-at="2019-01-27T22:39:30Z" finished-at="2019-01-27T22:39:31Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="4104" started-at="2019-01-27T22:39:31Z" finished-at="2019-01-27T22:39:35Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaNoName()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaNoName" duration-ms="5195" started-at="2019-01-27T22:39:35Z" finished-at="2019-01-27T22:39:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistracijaNoName -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="945" started-at="2019-01-27T22:39:41Z" finished-at="2019-01-27T22:39:41Z">
+        </test-method> <!-- testClickOdjavaZaposleni -->
+        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.LoginZaposleniTest@61832929]" name="closeSelenium" is-config="true" duration-ms="889" started-at="2019-01-28T02:25:33Z" finished-at="2019-01-28T02:25:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="3993" started-at="2019-01-27T22:39:41Z" finished-at="2019-01-27T22:39:45Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaNoPassword()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaNoPassword" duration-ms="5078" started-at="2019-01-27T22:39:45Z" finished-at="2019-01-27T22:39:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistracijaNoPassword -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="916" started-at="2019-01-27T22:39:51Z" finished-at="2019-01-27T22:39:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="4019" started-at="2019-01-27T22:39:51Z" finished-at="2019-01-27T22:39:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaNoPasswordRepeat()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaNoPasswordRepeat" duration-ms="3827" started-at="2019-01-27T22:39:55Z" finished-at="2019-01-27T22:39:59Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistracijaNoPasswordRepeat -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="951" started-at="2019-01-27T22:39:59Z" finished-at="2019-01-27T22:40:00Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="4126" started-at="2019-01-27T22:40:00Z" finished-at="2019-01-27T22:40:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaNoPrezime()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaNoPrezime" duration-ms="5404" started-at="2019-01-27T22:40:04Z" finished-at="2019-01-27T22:40:10Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistracijaNoPrezime -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="931" started-at="2019-01-27T22:40:10Z" finished-at="2019-01-27T22:40:11Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeSelenium -->
-        <test-method status="PASS" signature="setupSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="setupSelenium" is-config="true" duration-ms="3923" started-at="2019-01-27T22:40:11Z" finished-at="2019-01-27T22:40:15Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setupSelenium -->
-        <test-method status="PASS" signature="testRegistracijaOK()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="testRegistracijaOK" duration-ms="6503" started-at="2019-01-27T22:40:15Z" finished-at="2019-01-27T22:40:21Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testRegistracijaOK -->
-        <test-method status="PASS" signature="closeSelenium()[pri:0, instance:com.example.demo.selenium.RegistracijaTest@59f99ea]" name="closeSelenium" is-config="true" duration-ms="891" started-at="2019-01-27T22:40:21Z" finished-at="2019-01-27T22:40:22Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeSelenium -->
-      </class> <!-- com.example.demo.selenium.RegistracijaTest -->
+      </class> <!-- com.example.demo.selenium.LoginZaposleniTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

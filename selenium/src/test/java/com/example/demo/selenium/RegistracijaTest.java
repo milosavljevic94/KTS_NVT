@@ -3,6 +3,8 @@ package com.example.demo.selenium;
 import static org.junit.Assert.assertFalse;
 import static org.testng.Assert.assertEquals;
 
+import java.util.Random;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
@@ -120,11 +122,16 @@ private WebDriver browser;
 		registracijaPage.ensureUserNameFieldiSPresent();
 		registracijaPage.ensurePasswordRepeatFieldiSPresent();
 		
-		int random = (int )(Math.random() * 50 + 1);//For test purposes, not to duplicate user
+		Random random = new Random();
+
+		// generate a random integer from 0 to 899, then add 100
+		int x = random.nextInt(900) + 100;
+		
+		//int random = (int )(Math.random() * 50 + 1);//For test purposes, not to duplicate user
 		
 		registracijaPage.setInputIme("TestE2E");
 		registracijaPage.setInputPrezime("teste2e");
-		registracijaPage.setInputEmail("testE2E" + random + "@kts.com");
+		registracijaPage.setInputEmail("testE2E" + x + "@kts.com");
 		Thread.sleep(15000);
 		registracijaPage.setInputPassword("test");
 		registracijaPage.setInputPasswordRepeat("test");
