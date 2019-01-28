@@ -11,13 +11,13 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class NoviPolazakTest {
+public class NovoStajalisteTest {
 	
 	private WebDriver browser;
 	
 	HomePage homePage;
 	AfterLoginZaposleniPage afterLoginZaposleniPage;
-	NoviPolazakPage noviPolazakPage;
+	NovoStajalistePage novoStajalistePage;
 	
 	@BeforeMethod
 	public void setupSelenium() {
@@ -30,7 +30,7 @@ public class NoviPolazakTest {
 		browser.navigate().to("http://localhost:8080");
 		homePage = PageFactory.initElements(browser, HomePage.class);
 		afterLoginZaposleniPage = PageFactory.initElements(browser, AfterLoginZaposleniPage.class);
-		noviPolazakPage = PageFactory.initElements(browser, NoviPolazakPage.class);
+		novoStajalistePage = PageFactory.initElements(browser, NovoStajalistePage.class);
 		
 	}
 	
@@ -38,7 +38,7 @@ public class NoviPolazakTest {
 
 	
 	@Test
-	public void testAddPolazakRadniDan() throws InterruptedException { 
+	public void testAddStajalisteSuccess() throws InterruptedException { 
 		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
 		
 		//check LoginButton and Click
@@ -69,79 +69,35 @@ public class NoviPolazakTest {
 		afterLoginZaposleniPage.isMojeKarteButtonVisible();
 		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
 		
-		afterLoginZaposleniPage.getNoviPolazakButton().click();
+		afterLoginZaposleniPage.getNovoStajalisteButton().click();
 		
 		Thread.sleep(1000);
 		
-		assertEquals("http://localhost:8080/#!/addPolazak", browser.getCurrentUrl());
+		assertEquals("http://localhost:8080/#!/addStajaliste", browser.getCurrentUrl());
 		
-		noviPolazakPage.ensureSelectDanIsPresent();
-		noviPolazakPage.ensureVremeFieldIsPresent();
-		
-		Select sel=new Select(noviPolazakPage.getSelectDan());
-        sel.selectByValue("Radni dan");
+		novoStajalistePage.ensureNazivFieldIsPresent();
+		novoStajalistePage.ensureLokacijaXFieldIsPresent();
+		novoStajalistePage.ensureLokacijaYFieldIsPresent();
+		novoStajalistePage.ensureAdresaFieldIsPresent();
         
-        noviPolazakPage.setInputVreme("11:11");
+        novoStajalistePage.setNaziv("Test Naziv Stajalista");
+        novoStajalistePage.setLokacijaX("35.5");
+        novoStajalistePage.setLokacijaY("35.5");
+        novoStajalistePage.setAdresa("Test Adresa Stajalista");
         
-        noviPolazakPage.getSubmitButton().click();
-		
-	}
-	
-	@Test
-	public void testAddPolazakSubota() throws InterruptedException { 
-		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
-		
-		//check LoginButton and Click
-		homePage.prijavaIsDisplayed();
-		homePage.getButtonPrijava().click();
-		Thread.sleep(1500);
-		//check is Page correct
-		assertEquals("http://localhost:8080/#!/prijava", browser.getCurrentUrl());
-		
-		//check page objects
-		homePage.ensurePassWordFieldiSPresent();
-		homePage.ensureUserNameFieldiSPresent();
-		//homePage.ensureSubmitButtonIsClickable();
-		
-		homePage.setInputEmail("zaposleni@kts.com");
-		homePage.setInputPassword("a");
-		
-		
-		homePage.getSubmitButton().click();
-		Thread.sleep(1000);
-		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
-		
-		afterLoginZaposleniPage.isRedVoznjeButtonVisible();
-		afterLoginZaposleniPage.isNoviPolazakButtonVisible();
-		afterLoginZaposleniPage.isNovoStajalisteButtonVisible();
-		afterLoginZaposleniPage.isNovaLinijaButtonVisible();
-		afterLoginZaposleniPage.isKorisniciButtonVisible();
-		afterLoginZaposleniPage.isMojeKarteButtonVisible();
-		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
-		
-		afterLoginZaposleniPage.getNoviPolazakButton().click();
-		
-
-		Thread.sleep(1000);
-		
-		assertEquals("http://localhost:8080/#!/addPolazak", browser.getCurrentUrl());
-		
-	
-		noviPolazakPage.ensureSelectDanIsPresent();
-		noviPolazakPage.ensureVremeFieldIsPresent();
+        novoStajalistePage.ensureSubmitButtonIsPresent();
+        novoStajalistePage.ensureSubmitButtonIsClickable();
+        novoStajalistePage.getSubmitButton().click();
+        
+        novoStajalistePage.ensureStajalisteSuccessIsPresent();
+        
+        assertEquals("Stajalište Test Naziv Stajalista na adresi Test Adresa Stajalista uspešno dodato.", novoStajalistePage.getStajalisteSuccess().getText());
 
 		
-		Select sel=new Select(noviPolazakPage.getSelectDan());
-        sel.selectByValue("Subota");
-        
-        noviPolazakPage.setInputVreme("11:11");
-        
-        noviPolazakPage.getSubmitButton().click();
-		
 	}
 	
 	@Test
-	public void testAddPolazakNedelja() throws InterruptedException { 
+	public void testAddPolazakNoNaziv() throws InterruptedException { 
 		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
 		
 		//check LoginButton and Click
@@ -172,31 +128,31 @@ public class NoviPolazakTest {
 		afterLoginZaposleniPage.isMojeKarteButtonVisible();
 		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
 		
-		afterLoginZaposleniPage.getNoviPolazakButton().click();
-		
-		
+		afterLoginZaposleniPage.getNovoStajalisteButton().click();
 		
 		Thread.sleep(1000);
 		
-		assertEquals("http://localhost:8080/#!/addPolazak", browser.getCurrentUrl());
+		assertEquals("http://localhost:8080/#!/addStajaliste", browser.getCurrentUrl());
 		
-		
-		
-		noviPolazakPage.ensureSelectDanIsPresent();
-		noviPolazakPage.ensureVremeFieldIsPresent();
-		
-	
-		Select sel=new Select(noviPolazakPage.getSelectDan());
-        sel.selectByValue("Nedelja");
+		novoStajalistePage.ensureNazivFieldIsPresent();
+		novoStajalistePage.ensureLokacijaXFieldIsPresent();
+		novoStajalistePage.ensureLokacijaYFieldIsPresent();
+		novoStajalistePage.ensureAdresaFieldIsPresent();
         
-        noviPolazakPage.setInputVreme("11:11");
+        //novoStajalistePage.setNaziv("Test Naziv Stajalista");
+		novoStajalistePage.getNaziv().clear();
+        novoStajalistePage.setLokacijaX("35.5");
+        novoStajalistePage.setLokacijaY("35.5");
+        novoStajalistePage.setAdresa("Test Adresa Stajalista");
         
-        noviPolazakPage.getSubmitButton().click();
+        novoStajalistePage.ensureSubmitButtonIsPresent();
+        
+        assertFalse(novoStajalistePage.getSubmitButton().isEnabled());
 		
 	}
 	
 	@Test
-	public void testAddPolazakNoTime() throws InterruptedException { 
+	public void testAddPolazakNoLokacijaX() throws InterruptedException { 
 		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
 		
 		//check LoginButton and Click
@@ -227,28 +183,136 @@ public class NoviPolazakTest {
 		afterLoginZaposleniPage.isMojeKarteButtonVisible();
 		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
 		
-		afterLoginZaposleniPage.getNoviPolazakButton().click();
-		
-		
+		afterLoginZaposleniPage.getNovoStajalisteButton().click();
 		
 		Thread.sleep(1000);
 		
-		assertEquals("http://localhost:8080/#!/addPolazak", browser.getCurrentUrl());
+		assertEquals("http://localhost:8080/#!/addStajaliste", browser.getCurrentUrl());
 		
+		novoStajalistePage.ensureNazivFieldIsPresent();
+		novoStajalistePage.ensureLokacijaXFieldIsPresent();
+		novoStajalistePage.ensureLokacijaYFieldIsPresent();
+		novoStajalistePage.ensureAdresaFieldIsPresent();
+        
+        novoStajalistePage.setNaziv("Test Naziv Stajalista");
+        //novoStajalistePage.setLokacijaX("35.5");
+        novoStajalistePage.getLokacijaX().clear();
+        novoStajalistePage.setLokacijaY("35.5");
+        novoStajalistePage.setAdresa("Test Adresa Stajalista");
+        
+        novoStajalistePage.ensureSubmitButtonIsPresent();
+        
+        assertFalse(novoStajalistePage.getSubmitButton().isEnabled());
 		
-		
-		noviPolazakPage.ensureSelectDanIsPresent();
-		noviPolazakPage.ensureVremeFieldIsPresent();
-		
+	}
 	
-		Select sel=new Select(noviPolazakPage.getSelectDan());
+	@Test
+	public void testAddPolazakNoLokacijaY() throws InterruptedException { 
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
 		
-        sel.selectByValue("Nedelja");
+		//check LoginButton and Click
+		homePage.prijavaIsDisplayed();
+		homePage.getButtonPrijava().click();
+		Thread.sleep(1500);
+		//check is Page correct
+		assertEquals("http://localhost:8080/#!/prijava", browser.getCurrentUrl());
+		
+		//check page objects
+		homePage.ensurePassWordFieldiSPresent();
+		homePage.ensureUserNameFieldiSPresent();
+		//homePage.ensureSubmitButtonIsClickable();
+		
+		homePage.setInputEmail("zaposleni@kts.com");
+		homePage.setInputPassword("a");
+		
+		
+		homePage.getSubmitButton().click();
+		Thread.sleep(1000);
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
+		
+		afterLoginZaposleniPage.isRedVoznjeButtonVisible();
+		afterLoginZaposleniPage.isNoviPolazakButtonVisible();
+		afterLoginZaposleniPage.isNovoStajalisteButtonVisible();
+		afterLoginZaposleniPage.isNovaLinijaButtonVisible();
+		afterLoginZaposleniPage.isKorisniciButtonVisible();
+		afterLoginZaposleniPage.isMojeKarteButtonVisible();
+		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
+		
+		afterLoginZaposleniPage.getNovoStajalisteButton().click();
+		
+		Thread.sleep(1000);
+		
+		assertEquals("http://localhost:8080/#!/addStajaliste", browser.getCurrentUrl());
+		
+		novoStajalistePage.ensureNazivFieldIsPresent();
+		novoStajalistePage.ensureLokacijaXFieldIsPresent();
+		novoStajalistePage.ensureLokacijaYFieldIsPresent();
+		novoStajalistePage.ensureAdresaFieldIsPresent();
         
-        noviPolazakPage.getVremeField().clear();
-        assertFalse(noviPolazakPage.getSubmitButton().isEnabled());
+        novoStajalistePage.setNaziv("Test Naziv Stajalista");
+        novoStajalistePage.setLokacijaX("35.5");
+        //novoStajalistePage.setLokacijaY("35.5");
+        novoStajalistePage.getLokacijaY().clear();
+        novoStajalistePage.setAdresa("Test Adresa Stajalista");
         
-        //noviPolazakPage.getSubmitButton().click();
+        novoStajalistePage.ensureSubmitButtonIsPresent();
+        
+        assertFalse(novoStajalistePage.getSubmitButton().isEnabled());
+		
+	}
+	
+	@Test
+	public void testAddPolazakNoAdresa() throws InterruptedException { 
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
+		
+		//check LoginButton and Click
+		homePage.prijavaIsDisplayed();
+		homePage.getButtonPrijava().click();
+		Thread.sleep(1500);
+		//check is Page correct
+		assertEquals("http://localhost:8080/#!/prijava", browser.getCurrentUrl());
+		
+		//check page objects
+		homePage.ensurePassWordFieldiSPresent();
+		homePage.ensureUserNameFieldiSPresent();
+		//homePage.ensureSubmitButtonIsClickable();
+		
+		homePage.setInputEmail("zaposleni@kts.com");
+		homePage.setInputPassword("a");
+		
+		
+		homePage.getSubmitButton().click();
+		Thread.sleep(1000);
+		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
+		
+		afterLoginZaposleniPage.isRedVoznjeButtonVisible();
+		afterLoginZaposleniPage.isNoviPolazakButtonVisible();
+		afterLoginZaposleniPage.isNovoStajalisteButtonVisible();
+		afterLoginZaposleniPage.isNovaLinijaButtonVisible();
+		afterLoginZaposleniPage.isKorisniciButtonVisible();
+		afterLoginZaposleniPage.isMojeKarteButtonVisible();
+		afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
+		
+		afterLoginZaposleniPage.getNovoStajalisteButton().click();
+		
+		Thread.sleep(1000);
+		
+		assertEquals("http://localhost:8080/#!/addStajaliste", browser.getCurrentUrl());
+		
+		novoStajalistePage.ensureNazivFieldIsPresent();
+		novoStajalistePage.ensureLokacijaXFieldIsPresent();
+		novoStajalistePage.ensureLokacijaYFieldIsPresent();
+		novoStajalistePage.ensureAdresaFieldIsPresent();
+        
+        novoStajalistePage.setNaziv("Test Naziv Stajalista");
+        novoStajalistePage.setLokacijaX("35.5");
+        novoStajalistePage.setLokacijaY("35.5");
+        //novoStajalistePage.setAdresa("Test Adresa Stajalista");
+        novoStajalistePage.getAdresa().clear();
+        
+        novoStajalistePage.ensureSubmitButtonIsPresent();
+        
+        assertFalse(novoStajalistePage.getSubmitButton().isEnabled());
 		
 	}
 	

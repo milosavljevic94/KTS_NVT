@@ -82,15 +82,15 @@ public class NoviPolazakPage {
 		driver.get(APP_URL);
 	}
 	
-	public void ensureVremeFieldiSPresent() {
+	public void ensureVremeFieldIsPresent() {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOf(vremeField));
 	}
 	
-	public void ensureSelectDaniSPresent() {
+	public void ensureSelectDanIsPresent() {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.visibilityOf(selectDan));
 	}
 	
-	public void ensureSubmitPolazakiSPresent() {
+	public void ensureSubmitPolazakIsPresent() {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(submitButton));
 	}
 
