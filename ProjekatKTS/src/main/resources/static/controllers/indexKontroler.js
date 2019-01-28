@@ -175,7 +175,7 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 	    }
 	
         $scope.addKarta($scope.karta);
-        $rootScope.refresh();
+        //$rootScope.refresh();
         //$location.path('/mojeKarte');
     };
     
