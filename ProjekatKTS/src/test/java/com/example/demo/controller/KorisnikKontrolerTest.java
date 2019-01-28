@@ -37,7 +37,7 @@ public class KorisnikKontrolerTest {
 			.thenReturn(new Korisnik("Pera", "Peric", "test@gmail.com", "123"));
 	}
 	
-	@Test(expected = EntityNotFoundException.class)
+	@Test
 	public void testGetKorisnik() {
 		ResponseEntity<Korisnik> responseEntity =
 				restTemplate.getForEntity("/api/korisnik/email/test@gmail.com", Korisnik.class);
