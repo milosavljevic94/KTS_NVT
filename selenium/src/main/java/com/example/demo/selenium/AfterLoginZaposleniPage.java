@@ -39,7 +39,6 @@ public class AfterLoginZaposleniPage {
 	@FindBy(xpath = "/html/body/div[1]/div/div/a[7]")
 	private WebElement mojeKarteButton;
 	
-	
 	@FindBy(xpath = "/html/body/div[1]/div/div/a[8]")
 	private WebElement odjavaButton;
 

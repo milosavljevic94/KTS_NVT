@@ -55,7 +55,7 @@ private WebDriver browser;
 		homePage.getSubmitButton().click();
 		Thread.sleep(1000);
 		assertEquals("http://localhost:8080/#!/", browser.getCurrentUrl());
-		homePage.korisnikStatusFieldisVisible();
+		//homePage.korisnikStatusFieldisVisible();
 		
 		Thread.sleep(1500);
 		
