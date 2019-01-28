@@ -48,8 +48,8 @@ private WebDriver browser;
 		homePage.ensureUserNameFieldiSPresent();
 		//homePage.ensureSubmitButtonIsClickable();
 		
-		homePage.setInputEmail("test@kts.com");
-		homePage.setInputPassword("test");
+		homePage.setInputEmail("pera@kts.com");
+		homePage.setInputPassword("a");
 		
 		
 		homePage.getSubmitButton().click();

@@ -13,6 +13,8 @@ insert into zaposleni(id, ime, prezime, email, lozinka, tip) values(-4,'zaposlen
 insert into korisnik(id, ime, prezime, email, lozinka, tip) values(-1,'Petar','Petrovic','pera@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 2);
 insert into korisnik(id, ime, prezime, email, lozinka, tip) values(-2,'Nikola','Nikolic','nikola@kts.com','$2a$10$S3rxpwjnJUrmgMrnMCJo8eIRCFvCcmzuPi5Y3Okz67i/2sj6xMfau', 2);
 
+
+
 insert into korisnik_authority(id, authority_id, korisnik_id) values (-1, 4, -3);
 insert into korisnik_authority(id, authority_id, korisnik_id) values (-2, 5, -4);
 insert into korisnik_authority(id, authority_id, korisnik_id) values (-3, 3, -1);
