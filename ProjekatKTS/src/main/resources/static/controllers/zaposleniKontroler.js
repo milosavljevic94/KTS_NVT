@@ -1,4 +1,4 @@
-app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, korisnikFactory, $http, $rootScope, $location, $window) {
+app.controller('zaposleniKontroler', function($scope, polazakFactory, stajalisteFactory, linijaFactory, korisnikFactory, kartaFactory, $http, $rootScope, $location, $window) {
 
 	/*$scope.polasciMock = [{id:32, dan:"Subota", vreme:"15:45"},{id:33, dan:"Subota", vreme:"14:45"},{id:34, dan:"Radni dan", vreme:"14:45"}];
 	$scope.stajalistaMock = [{id:42, naziv:"stajaliste1", lokacijaX:"22.2", lokacijaY:"32.2", adresa:"Cara Dusana"},{id:43, naziv:"stajaliste2", lokacijaX:"25.2", lokacijaY:"38.2", adresa:"Cara Lazara"},
@@ -19,6 +19,9 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		});
         korisnikFactory.sviKorisnici().then(function (data4) {
         	$scope.korisnici = data4.data;
+		});
+		kartaFactory.getAll().then(function (data5) {
+        	$scope.karte = data5.data;
         });
     }
     
@@ -44,6 +47,12 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
         linijaFactory.getAll().then(function (data3) {
         	$scope.linije = data3.data;
 		});
+		korisnikFactory.sviKorisnici().then(function (data4) {
+        	$scope.korisnici = data4.data;
+		});
+		kartaFactory.getAll().then(function (data5) {
+        	$scope.karte = data5.data;
+        });
 	}
 	
 	$scope.addPolazak = function(polazak) {
@@ -249,6 +258,24 @@ app.controller('zaposleniKontroler', function($scope, polazakFactory, stajaliste
 		$rootScope.detailViewKorisnik = korisnik;
 		$location.path('/korisnikDetails');
 	}
+
+	$scope.viewKarte = function(korisnik) {
+		
+		$rootScope.detailViewKorisnikKarte = [];
+
+		for(var i=0; i<angular.fromJson($scope.karte).length; i++) {
+			if($scope.karte[i].vlasnik===korisnik.id) {
+				$scope.detailViewKorisnikKarte.push($scope.karte[i]);
+			}
+		}
+
+		$location.path('/viewKarteKorisnika');
+	}
 	
+	$scope.kartaDetailsZaposleni = function(karta) {
+		
+		$rootScope.detailViewKarta = karta;
+		$location.path('/kartaDetailsZaposleni');
+	}
 	
 });

@@ -93,7 +93,7 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 	
 	$scope.back = function() {
 		//$location.path('/displayKorisnici');
-		$window.history.back();
+        $window.history.back();
 	};
  
     $scope.submitLinijaDisplay = function() {
@@ -112,6 +112,13 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
  
         //$scope.refresh();
     };
+
+    $scope.addKarta = function(karta) {
+		kartaFactory.addKarta(karta).then(function(data) {
+		}).catch(function (response) {
+			toast("Greska prilikom unosa komentara.");
+		});	
+	}
  
     $scope.kupiKartu = function(tipKarte) {
         
@@ -167,8 +174,9 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 	        $scope.karta.cena = 28000;
 	    }
 	
-	    kartaFactory.addKarta($scope.karta);
-	    $rootScope.refresh();
+        $scope.addKarta($scope.karta);
+        $rootScope.refresh();
+        //$location.path('/mojeKarte');
     };
     
     $scope.kartaDetails = function(karta) {
@@ -176,7 +184,5 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 		$rootScope.detailViewKarta = karta;
 		$location.path('/kartaDetails');
 	}
- 
- 
    
 });

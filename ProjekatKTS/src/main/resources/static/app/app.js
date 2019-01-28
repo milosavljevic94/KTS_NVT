@@ -117,5 +117,27 @@ app.config(function($routeProvider) {
 		},
 
 		templateUrl: 'partials/kartaDetails.html'
+	}).when('/viewKarteKorisnika',
+	{
+		resolve: {
+			"check": function($location, $rootScope) {
+				if($rootScope.tipKorisnika!=="zaposleni") {
+					$location.path('/');
+				}
+			}
+		},
+
+		templateUrl: 'partials/viewKarteKorisnika.html'
+	}).when('/kartaDetailsZaposleni',
+	{
+		resolve: {
+			"check": function($location, $rootScope) {
+				if($rootScope.tipKorisnika!=="zaposleni") {
+					$location.path('/');
+				}
+			}
+		},
+
+		templateUrl: 'partials/kartaDetailsZaposleni.html'
 	})
 });

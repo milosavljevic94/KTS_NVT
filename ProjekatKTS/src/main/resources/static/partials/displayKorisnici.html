@@ -4,6 +4,7 @@
 			<table border="1">
 				<thead>
 					<tr>
+						<td align="center">Id</td>
 						<td align="center">Ime</td>
 						<td align="center">Prezime</td>
 						<td align="center"></td>
@@ -11,6 +12,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="korisnik in korisnici">
+						<td align="center">{{korisnik.id}}</td>
 						<td align="center">{{korisnik.ime}}</td>
 						<td align="center">{{korisnik.prezime}}</td>
 						<td align="center"><button type="button" class='btn btn-default' ng-click="korisnikDetails(korisnik)">Detaljnije</button></td>

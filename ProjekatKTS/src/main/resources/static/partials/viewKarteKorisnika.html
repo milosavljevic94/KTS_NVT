@@ -1,0 +1,22 @@
+<div ng-controller="zaposleniKontroler">
+			<h2>Karte ({{detailViewKorisnik.id + " - " + detailViewKorisnik.ime + " " + detailViewKorisnik.prezime}})</h2>
+			
+			<table border="1">
+				<thead>
+					<tr>
+                        <td align="center">Oznaka</td>
+						<td align="center">Tip karte</td>
+                        <td align="center">Aktivirana </td>
+                        <td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button></td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="karta in detailViewKorisnikKarte">
+                        <td align="center">{{karta.id}}</td>
+						<td align="center">{{karta.tip}}</td>
+						<td align="center">{{karta.aktivirana ? 'Da' : 'Ne' }}</td>
+						<td align="center"><button type="button" class='btn btn-default' ng-click="kartaDetailsZaposleni(karta)">Detaljnije</button></td>
+					</tr>
+				</tbody>
+			</table>
+</div>

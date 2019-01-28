@@ -3,6 +3,7 @@
 		
 		<form name="korisnikDetailsForm" action="/">
 			<table border="1" cellpadding="5">
+				<tr><td>Id: </td><td>{{detailViewKorisnik.id}}</td></tr>
 				<tr><td>Ime: </td><td>{{detailViewKorisnik.ime}}</td></tr>
 				<tr><td>Prezime: </td><td>{{detailViewKorisnik.prezime}}</td></tr>
 				<tr><td>Email: </td><td>{{detailViewKorisnik.email}}</td></tr>
@@ -12,8 +13,9 @@
 						<option value="ucenik">U&ccaron;enik</option>
 						<option value="penzioner">Penzioner</option>
 					</select></td></tr>
-				<tr><td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button>
+				<tr><td align="center"><button type="button" class='btn btn-default' ng-click="back()">Nazad</button></td>
 				<td align="center"><button type="button" class='btn btn-default' ng-click="updateTipKorisnika(detailViewKorisnik)">A&zcaron;uriraj</button></td></tr>
+				<tr><td align="center" colspan="2"><button type="button" class='btn btn-default' ng-click="viewKarte(detailViewKorisnik)">Pregled Karata</button></td></tr>
 			</table>
 		</form>
 </div>
