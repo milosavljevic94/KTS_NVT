@@ -39,10 +39,8 @@ public class AfterLoginZaposleniPage {
 	@FindBy(xpath = "/html/body/div[1]/div/div/a[7]")
 	private WebElement mojeKarteButton;
 	
-	@FindBy(xpath = "/html/body/div[1]/div/div/a[8]")
-	private WebElement korisnikStatus;
 	
-	@FindBy(xpath = "/html/body/div[1]/div/div/a[9]")
+	@FindBy(xpath = "/html/body/div[1]/div/div/a[8]")
 	private WebElement odjavaButton;
 
 	public WebElement getRedVoznjeButton() {
@@ -101,14 +99,6 @@ public class AfterLoginZaposleniPage {
 		this.mojeKarteButton = mojeKarteButton;
 	}
 
-	public WebElement getKorisnikStatus() {
-		return korisnikStatus;
-	}
-
-	public void setKorisnikStatus(WebElement korisnikStatus) {
-		this.korisnikStatus = korisnikStatus;
-	}
-
 	public WebElement getOdjavaButton() {
 		return odjavaButton;
 	}
@@ -163,9 +153,6 @@ public class AfterLoginZaposleniPage {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(mojeKarteButton));
 	}
 	
-	public void isKorisnikStatusFieldisVisible() {
-		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(korisnikStatus));
-	}
 	
 	public void isOdjavaButtonFieldisVisible() {
 		(new WebDriverWait(driver, 10)).until(ExpectedConditions.elementToBeClickable(odjavaButton));

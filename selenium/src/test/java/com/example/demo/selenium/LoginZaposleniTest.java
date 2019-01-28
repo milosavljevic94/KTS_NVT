@@ -64,7 +64,6 @@ public class LoginZaposleniTest {
 			afterLoginZaposleniPage.isNovaLinijaButtonVisible();
 			afterLoginZaposleniPage.isKorisniciButtonVisible();
 			afterLoginZaposleniPage.isMojeKarteButtonVisible();
-			afterLoginZaposleniPage.isKorisnikStatusFieldisVisible();
 			afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
 			
 			
@@ -106,11 +105,11 @@ public class LoginZaposleniTest {
 			afterLoginZaposleniPage.isNovaLinijaButtonVisible();
 			afterLoginZaposleniPage.isKorisniciButtonVisible();
 			afterLoginZaposleniPage.isMojeKarteButtonVisible();
-			afterLoginZaposleniPage.isKorisnikStatusFieldisVisible();
 			afterLoginZaposleniPage.isOdjavaButtonFieldisVisible();
 			
+			
 			afterLoginZaposleniPage.getOdjavaButton().click();
-
+			Thread.sleep(1000);
 			assertTrue(homePage.getButtonPrijava().isDisplayed());
 			assertTrue(homePage.getRegistracijaButton().isDisplayed());
 			
