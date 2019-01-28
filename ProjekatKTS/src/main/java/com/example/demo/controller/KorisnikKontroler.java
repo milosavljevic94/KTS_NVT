@@ -92,7 +92,7 @@ public class KorisnikKontroler {
 		return new ResponseEntity<>(new KorisnikDTO(kor), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value="/{email}", method=RequestMethod.GET)
+	@RequestMapping(value="/email/{email}", method=RequestMethod.GET)
 	public ResponseEntity<KorisnikDTO> getKorisnikByEmail(@PathVariable String email) {
 		Korisnik kor = korServis.getUserByUsername(email);
 		if (kor == null)
