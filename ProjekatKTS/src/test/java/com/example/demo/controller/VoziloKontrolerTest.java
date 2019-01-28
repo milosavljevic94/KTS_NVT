@@ -32,18 +32,18 @@ public class VoziloKontrolerTest {
 	
 	@Before
 	public void setUp() {
-		Mockito.when(voziloServisMocked.getOne(13456L)).thenReturn(new Vozilo(13456L, 0L, 0L, TipVozila.autobus));
+		Mockito.when(voziloServisMocked.getOne(-1L)).thenReturn(new Vozilo(-1L, 0L, 0L, TipVozila.autobus));
 	}
 	
 	@Test
 	public void testGetVozilo() {
-		ResponseEntity<Vozilo> responseEntity = restTemplate.getForEntity("/api/vozilo?id=123L", Vozilo.class);
+		ResponseEntity<Vozilo> responseEntity = restTemplate.getForEntity("/api/vozilo/-1", Vozilo.class);
 		
 		Vozilo vozilo = responseEntity.getBody();
 		
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 		assertNotNull(vozilo);
-		assertEquals(new Long(13456L), vozilo.getId());
+		assertEquals(new Long(-1L), vozilo.getId());
 	}
 
 }
