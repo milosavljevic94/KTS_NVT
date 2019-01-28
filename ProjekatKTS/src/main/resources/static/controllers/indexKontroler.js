@@ -115,6 +115,7 @@ app.controller('indexKontroler', function($scope, polazakFactory, stajalisteFact
 
     $scope.addKarta = function(karta) {
 		kartaFactory.addKarta(karta).then(function(data) {
+			$scope.kartaStatus = data.data;
 		}).catch(function (response) {
 			toast("Greska prilikom unosa komentara.");
 		});	

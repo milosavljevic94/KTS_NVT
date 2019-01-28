@@ -68,7 +68,7 @@ public class LinijaServisIntegrationTest {
     	Linija testLinija = linijaServis.findOne(-1L);
 		assertThat(testLinija).isNotNull();
 		assertThat(testLinija.getId()).isEqualTo(-1L);
-		assertEquals(testLinija.getNaziv(), "Centar-Telep");
+		assertEquals(testLinija.getNaziv(), "Centar - Telep");
 	}
 	
 	@Test 

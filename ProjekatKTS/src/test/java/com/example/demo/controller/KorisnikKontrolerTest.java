@@ -38,7 +38,7 @@ public class KorisnikKontrolerTest {
 	@Test
 	public void testGetKorisnik() {
 		ResponseEntity<Korisnik> responseEntity =
-				restTemplate.getForEntity("/api/korisnik?email=test@gmail.com", Korisnik.class);
+				restTemplate.getForEntity("/api/korisnik/email/test@gmail.com", Korisnik.class);
 		Korisnik kor = responseEntity.getBody();
 		
 		assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
